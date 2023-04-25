@@ -5,8 +5,32 @@ var art_piece="";
 var mytoken = "";
 var inthandle;
 var inthandle2;
+var color;
 
-document.getElementsByClassName('emotion-button').addEventListener("click", addColor(this.id))
+//document.getElementsByClassName('emotion-button').addEventListener("click", addColor(this.id))
+
+document.addEventListener("DOMContentLoaded", function() {
+    setColor('#343a40');
+  });
+
+document.getElementById('anger').addEventListener("click", (e) => {
+    setColor('red');
+})
+
+document.getElementById('sadness').addEventListener("click", (e) => {
+    setColor('blue');
+})
+
+document.getElementById('joy').addEventListener("click", (e) => {
+    setColor('green');
+})
+
+document.getElementById('confusion').addEventListener("click", (e) => {
+    setColor('cyan');
+})
+
+function setColor(color) {
+    document.getElementById('navbar').style.backgroundColor = color;}
 
 function completeAddColor(result){
 // 	var status = result['status'];
