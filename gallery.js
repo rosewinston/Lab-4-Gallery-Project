@@ -6,12 +6,9 @@ var mytoken = "";
 var inthandle;
 var inthandle2;
 
-document.getElementsByClassName('emotion-button').addEventListener("click", (e) => {
-	color(this.id);
-	// generateToken();
-});
+document.getElementsByClassName('emotion-button').addEventListener("click", addColor(this.id))
 
-function completeAddColor(results){
+function completeAddColor(result){
 // 	var status = result['status'];
 // 	if (status != "success") {
 // 		alert("Username or password is incorrect!");
@@ -21,7 +18,7 @@ function completeAddColor(results){
 	var art_piece = results['art_piece'];
 	var color = results['color'];
 // 	mytoken = results['token'];
-	console.log("Art: "+art_piece+", Color: "+color);	
+	console.log("Art: "+user+", Color: "+color);	
 }
 
 function addColor(clicked_id) {
