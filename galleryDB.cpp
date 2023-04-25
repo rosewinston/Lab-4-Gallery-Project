@@ -96,6 +96,6 @@ void galleryDB::addColor(string art_piece, string color){
 
   	std::auto_ptr<sql::Statement> stmnt(conn->createStatement());
 
-  	stmnt->executeQuery("INSERT INTO color_response(art_piece, color) VALUES ('"+username+"','"+art_piece+"')");
+  	stmnt->executeQuery("INSERT INTO color_response(art_piece, color) VALUES ('"+art_piece+"','"+color+"')");
 }
 
