@@ -23,22 +23,22 @@
     padding: 15px 0;
   }
 
-#anger-btn {
+#anger {
     font-size:100px;
     background-color:red;
 }
 
-#sadness-btn {
+#sadness {
     font-size:100px;
     background-color:blue;
 }
 
-#joy-btn {
+#joy {
     font-size:100px;
     background-color:rgb(0, 255, 0);
 }
 
-#confusion-btn{
+#confusion{
     font-size:100px;
     background-color:cyan;
 }
