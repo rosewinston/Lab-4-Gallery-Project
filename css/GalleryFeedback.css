@@ -7,3 +7,13 @@
     text-decoration: none;
     font-size: 25px;
 }
+
+.emoji-box {
+    width: 75%;
+    height: 40%;
+    margin: auto;
+    /* margin-top: 5%; */
+    text-align: center;
+    text-decoration: none;
+    font-size: 25px;
+}
