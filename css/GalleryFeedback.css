@@ -2,16 +2,73 @@
     width: 50vh;
     height: 40vh;
     margin: auto;
-    margin-top: 5%;
+    /* margin-top: 5%; */
+    gap:2rem;
     text-align: center;
     text-decoration: none;
     font-size: 25px;
 }
 
 .emoji-box {
-    width: 75%;
-    height: 40%;
+    width: 50vh;
+    height: 40vh;
     margin: auto;
     /* margin-top: 5%; */
     font-size: 25px;
+}
+
+.link {
+    background:none;
+    border:none;
+    text-decoration: none;
+    color: blue;
+    font-family: inherit;
+    font-size: 25px;
+    cursor:pointer;
+    padding:0;
+}
+
+.dropdown.active > .link,
+.link:hover {
+    color:rgb(53, 173, 212);
+}
+
+.dropdown-menu {
+    position: absolute;
+    left: 0;
+    top: calc(100% -.25rem);
+    background-color:white;
+    padding: .75rem;
+    border-radius:.25rem;
+    box-shadow: 0 2px 5px 0 rgba(0,0,0,.1);
+    opacity: 0;
+    pointer-events:none;
+    transform: translateY(-10px);
+    transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
+}
+
+.dropdown-menu-center {
+    left: 50% !important;
+    right: auto !important;
+    text-align: center !important;
+    transform: translate(-50%, 0) !important;
+  }
+
+.dropdown.active > .link + .dropdown-menu {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+
+.information-grid{
+    display: grid;
+    grid-template-columns: repeat(5,max-content);
+    gap: .5rem;
+}
+
+.dropdown-emojis {
+    display:flex;
+    flex-direction:column;
+    gap: .25rem;
 }

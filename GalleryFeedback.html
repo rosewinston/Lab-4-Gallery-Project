@@ -31,30 +31,64 @@
           </nav>
         <!-- Page content-->
         <div class="h-100 container-fluid">
-            <div class="text-center mt-5">
+            <div class="text-center mt-5" style="padding-top:2rem">
                 <h1>Tell us how the gallery made you feel today!</h1>
             </div>
-                <div class="word-box">
+                <div class="word-box" style="padding-top:3rem">
                     <label for="usr">Share a word that encapsulates how the exhibition made you feel:</label>
                     <input type="text" class="form-control" id="word-response">
+                    <button class="btn btn-primary" id="submit-btn">Submit Response!</button>
                 </div>
-                <div class="word-box">
-                <div class="emoji-box" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <label for="usr">Select an Emoji too!</label>
-                    <select class="dropdown" id="emoji-menu">
-                        <option>&#128512;</option>
-                        <option>&#128514;</option>
-                        <option>&#128523;</option>
-                        <option>&#128525;</option>
-                        <option>&#128528;</option>
-                        <option>&#128533;</option>
-                        <option>&#128546;</option>
-                        <option>&#128552;</option>
-                    </select>
+                <div class="word-box dropdown text-center" data-dropdown>
+                    <button class="link" data-dropdown-button>Click here to respond with an Emoji!</button>
+                    <div class="dropdown-menu dropdown-menu-center information-grid">
+                        <div>
+                            <div class="dropdown-emojis">
+                                <option href="#" class="link">&#128512;</option>
+                                <option href="#" class="link">&#128514;</option>
+                                <option href="#" class="link">&#128523;</option>
+                                <option href="#" class="link">&#128523;</option>
+                                <option href="#" class="link">&#128523;</option>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="dropdown-emojis">
+                                <option href="#" class="link">&#128523;</option>
+                                <option href="#" class="link">&#128523;</option>
+                                <option href="#" class="link">&#128523;</option>
+                                <option href="#" class="link">&#128523;</option>
+                                <option href="#" class="link">&#128523;</option>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="dropdown-emojis">
+                                <option href="#" class="link">&#128523;</option>
+                                <option href="#" class="link">&#128523;</option>
+                                <option href="#" class="link">&#128523;</option>
+                                <option href="#" class="link">&#128523;</option>
+                                <option href="#" class="link">&#128523;</option>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="dropdown-emojis">
+                                <option href="#" class="link">&#128523;</option>
+                                <option href="#" class="link">&#128523;</option>
+                                <option href="#" class="link">&#128523;</option>
+                                <option href="#" class="link">&#128523;</option>
+                                <option href="#" class="link">&#128523;</option>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="dropdown-emojis">
+                                <option href="#" class="link">&#128512;</option>
+                                <option href="#" class="link">&#128514;</option>
+                                <option href="#" class="link">&#128523;</option>
+                                <option href="#" class="link">&#128523;</option>
+                                <option href="#" class="link">&#128523;</option>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <button class="btn btn-primary" id="submit-btn">Submit Response!</button>
-                </div>
-        </div>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
