@@ -1,16 +1,16 @@
 #include "colorEntry.h"
 
-userEntry::userEntry() {
+colorEntry::colorEntry() {
 }
 
-userEntry::userEntry(sql::SQLString id, sql::SQLString timestamp, sql::SQLString art_piece, sql::SQLString color) {
+colorEntry::colorEntry(sql::SQLString id, sql::SQLString timestamp, sql::SQLString art_piece, sql::SQLString color) {
     this->id = id;
     this->timestamp = timestamp;
     this->art_piece = art_piece;
     this->color = color;
 }
 
-string userEntry::text() {
+string colorEntry::text() {
 	string result = id + ". ";
 	result += timestamp + " ";
 	result += art_piece + " ";
@@ -19,7 +19,7 @@ string userEntry::text() {
 
 }
 
-string userEntry::json() {
+string colorEntry::json() {
 	string result = "{\"id\":\"" + id + "\",";
 	result += "\"timestamp\":\"" + timestamp + "\",";
 	result += "\"art_piece\":\"" + art_piece + "\",";
