@@ -5,11 +5,11 @@ var art_piece="";
 var mytoken = "";
 var inthandle;
 var inthandle2;
-var color;
+var color = '#343a40';
 
 
 document.addEventListener("DOMContentLoaded", function() {
-    setColor('#343a40');
+    setColor(color);
   });
 
 document.getElementById('anger').addEventListener("click", (e) => {

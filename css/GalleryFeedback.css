@@ -1,0 +1,9 @@
+.word-box {
+    width: 50vh;
+    height: 40vh;
+    margin: auto;
+    margin-top: 5%;
+    text-align: center;
+    text-decoration: none;
+    font-size: 25px;
+}
