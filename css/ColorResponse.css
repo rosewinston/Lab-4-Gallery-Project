@@ -2,6 +2,43 @@
     width: 100vh;
     height: 80vh;
     display:flex;
-    justify-content: center;
+    justify-content: space-around;
     align-items:center;
+}
+
+.emotion-button {
+    width: 35vh;
+    height: 35vh;
+    margin: 5%;
+    text-align: bottom;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 30px;
+}
+
+#bottom {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    padding: 15px 0;
+  }
+
+#anger-btn {
+    font-size:100px;
+    background-color:red;
+}
+
+#sadness-btn {
+    font-size:100px;
+    background-color:blue;
+}
+
+#joy-btn {
+    font-size:100px;
+    background-color:rgb(0, 255, 0);
+}
+
+#confusion-btn{
+    font-size:100px;
+    background-color:cyan;
 }
