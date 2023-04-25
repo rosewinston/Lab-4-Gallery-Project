@@ -14,7 +14,7 @@
         <link href="font-mfizz-2.4.1/font-mfizz.css" rel="stylesheet" />:
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
-        <link href="ColorResponse.css"type="text/css" rel="stylesheet" />
+        <link href="css/ColorResponse.css"type="text/css" rel="stylesheet" />
     </head>
     <body>
         <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
@@ -36,18 +36,18 @@
             </div>
             <div class="container" id="emotion-buttons">
                 <div class="btn-group row align-items-center gap-2">
-                    <button class="btn btn-primary" type="button">Anger</button>
-                    <button class="btn btn-primary" type="button">Joy</button>
+                    <button class="emotion-button" type="button" data-toggle="tooltip" data-placement="top" title="Anger" id="anger-btn">&#128544;</button>
+                    <button class="emotion-button" type="button" data-toggle="tooltip" data-placement="top" title="Joy" id="joy-btn">&#128546;</button>
                 </div>
                 <div class="btn-group row align-items-center gap-2">
-                    <button class="btn btn-primary" type="button">Saddness</button>
-                    <button class="btn btn-primary" type="button">Confusion</button>
+                    <button class="emotion-button" type="button" data-toggle="tooltip" data-placement="top" title="Sadness" id="sadness-btn">&#128522;</button>
+                    <button class="emotion-button" type="button" data-toggle="tooltip" data-placement="top" title="Confusion" id="confusion-btn">&#128533;</button>
                 </div>
             </div>
         </div>
         <!-- Bootstrap core JS-->
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
-        <script src="js/scripts.js"></script>
+        <script src="gallery.js"></script>
     </body>
 </html>
