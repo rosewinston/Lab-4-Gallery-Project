@@ -34,7 +34,7 @@ int main(void) {
     res.set_content("Chat API", "text/plain"); 
   });
   
-  svr.Get(R"(/gallery/addColor/(.*)/(.*))", [&](const Request& req, Response& res) {
+  svr.Get(R"(/response/addColor/(.*)/(.*))", [&](const Request& req, Response& res) {
     res.set_header("Access-Control-Allow-Origin","*");
     string art_piece = req.matches[1];
     string color = req.matches[2];

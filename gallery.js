@@ -7,7 +7,6 @@ var inthandle;
 var inthandle2;
 var color;
 
-//document.getElementsByClassName('emotion-button').addEventListener("click", addColor(this.id))
 
 document.addEventListener("DOMContentLoaded", function() {
     setColor('#343a40');
@@ -29,25 +28,33 @@ document.getElementById('confusion').addEventListener("click", (e) => {
     setColor('cyan');
 })
 
+
 function setColor(color) {
     document.getElementById('navbar').style.backgroundColor = color;}
 
-function completeAddColor(result){
-// 	var status = result['status'];
-// 	if (status != "success") {
-// 		alert("Username or password is incorrect!");
-// 		leaveSession();
-// 		return;
-// 	}
+
+
+// ADD COLOR TO DATABASE input.addEventListener('click', ));
+      
+// apply the event listener to all images
+document.querySelectorAll('.emotion-button').forEach((element) => {
+	element.addEventListener('click', event => {
+		var colorID = event.currentTarget.id;
+		addColor(colorID);
+	});
+});
+
+
+function completeAddColor(results){
 	var art_piece = results['art_piece'];
 	var color = results['color'];
 // 	mytoken = results['token'];
-	console.log("Art: "+user+", Color: "+color);	
+	console.log("Art: "+art_piece+", Color: "+color);	
 }
 
-function addColor(clicked_id) {
+function addColor(colorID) {
 	var art_piece = "Prototype Test";
-	fetch(baseUrl+'/gallery/addColor/'+art_piece+'/'+clicked_id, {
+	fetch(baseUrl+'/response/addColor/'+art_piece+'/'+colorID, {
         method: 'get'
     })
     .then (response => response.json() )
