@@ -14,11 +14,8 @@
 .background-image{
     background: linear-gradient(rgba(0,0,0,0.38), rgba(0,0,0,0.38));
     max-width: auto;
-    object-position: center;
-    object-fit: cover;
     background-repeat: no-repeat;
-    background-color: cover;
-    background-size: contain;
+    background-size: cover;
 }
 .content-section{
     width: 100%;
