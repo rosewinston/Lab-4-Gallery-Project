@@ -30,6 +30,7 @@ PutHTML:
 	cp GalleryFeedback.html /var/www/html/gallery/
 	cp -R css /var/www/html/gallery/
 	cp gallery.js /var/www/html/gallery/
+	cp GalleryLanding.html /var/www/html/gallery
 	
 	echo "Current contents of your HTML directory: "
 	ls -l /var/www/html/gallery/
