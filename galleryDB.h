@@ -10,6 +10,8 @@
 #include <mariadb/conncpp.hpp>
 
 #include "colorEntry.h"
+#include "emojiEntry.h"
+#include "wordEntry.h"
 
 #ifndef GALLERYDB_H
 #define GALLERYDB_H
