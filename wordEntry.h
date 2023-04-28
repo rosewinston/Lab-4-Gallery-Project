@@ -8,14 +8,13 @@ using namespace std;
 class wordEntry {
 public:
      colorEntry();
-     colorEntry(sql::SQLString id, sql::SQLString timestamp, sql::SQLString art_piece, sql::SQLString color);
+     colorEntry(sql::SQLString id, sql::SQLString timestamp, sql::SQLString word);
      string text();
      string json();
      
   string id;
   string timestamp;
-  string art_piece;
-  string color;
+  string word;
 
 private:
 
