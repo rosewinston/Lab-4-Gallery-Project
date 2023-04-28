@@ -3,18 +3,17 @@
 wordEntry::wordEntry() {
 }
 
-wordEntry::wordEntry(sql::SQLString id, sql::SQLString timestamp, sql::SQLString art_piece, sql::SQLString color) {
+wordEntry::wordEntry(sql::SQLString id, sql::SQLString timestamp, sql::SQLString word) {
     this->id = id;
     this->timestamp = timestamp;
-    this->art_piece = art_piece;
-    this->color = color;
+    this->word = word;
+ 
 }
 
 string wordEntry::text() {
 	string result = id + ". ";
 	result += timestamp + " ";
-	result += art_piece + " ";
-	result += color;
+	result += word;
 	return result;
 
 }
@@ -22,7 +21,6 @@ string wordEntry::text() {
 string wordEntry::json() {
 	string result = "{\"id\":\"" + id + "\",";
 	result += "\"timestamp\":\"" + timestamp + "\",";
-	result += "\"art_piece\":\"" + art_piece + "\",";
-	result += "\"color\":\"" + color + "\"}";
+	result += "\"word\":\"" + word + "\"}";
 	return result;
 }
