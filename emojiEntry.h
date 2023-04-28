@@ -8,11 +8,12 @@ using namespace std;
 class emojiEntry {
 public:
      emojiEntry();
-     emojiEntry(sql::SQLString id, sql::SQLString emoji_code);
+     emojiEntry(sql::SQLString id, sql::SQLString timestamp, sql::SQLString emoji_code);
      string text();
      string json();
      
   string id;
+  string timestamp;
   string emoji_code; 
 
 private:
