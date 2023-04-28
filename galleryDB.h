@@ -25,9 +25,15 @@ using namespace std;
 class galleryDB {
 public:
     galleryDB();
+    void addEntryEmoji(string id, string timestamp, string emoji_code);
+    void addEntryColor(string id, string timestamp, string art_piece, string color);
+    void addEntryWord(string id, string timestamp, string word); 
+    map sumEmoji(string ____); //GO BACK AND NAME THIS STRING PARAMETER
+    map sumColor(string ____); //GO BACK AND NAME THIS STRING PARAMETER
+    map sumWord(string _____); //GO BACK AND NAME THIS STRING PARAMETER
     // vector<userEntry> find(string user, string mail);
     // userEntry fetchEntry(string idnum);
-    void addColor(string art_piece, string color);
+    // void addColor(string art_piece, string color);
     // void editColor(string idnum, string username, string email, string password);
     void deleteColor(string idnum);
     
