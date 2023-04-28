@@ -14,14 +14,20 @@ all: PutHTML gallery
 colorEntry.o: colorEntry.cpp colorEntry.h
 	$(CC) -c $(CFLAGS) colorEntry.cpp
 	
+emojiEntry.o: emojiEntry.cpp emojiEntry.h
+	$(CC) -c $(CFLAGS) emojiEntry.cpp
+	
+wordEntry.o: wordEntry.cpp wordEntry.h
+	$(CC) -c $(CFLAGS) wordEntry.cpp
+	
 galleryDB.o: galleryDB.cpp galleryDB.h
 	$(CC) -c $(CFLAGS) -I/usr/include/cppconn galleryDB.cpp
 
 gallery.o: gallery.cpp httplib.h
 	$(CC) -c $(CFLAGS) gallery.cpp
 
-gallery: gallery.o galleryDB.o colorEntry.o 
-	$(CC) gallery.o galleryDB.o colorEntry.o -o gallery -L/usr/local/lib -lmariadbcpp
+gallery: gallery.o galleryDB.o colorEntry.o emojiEntry.o wordEntry.o
+	$(CC) gallery.o galleryDB.o colorEntry.o emojiEntry.o wordEntry.o -o gallery -L/usr/local/lib -lmariadbcpp
 	
 
 
