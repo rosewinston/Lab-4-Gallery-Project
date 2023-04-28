@@ -3,18 +3,18 @@
 colorEntry::emojiEntry() {
 }
 
-emojiEntry::emojiEntry(sql::SQLString id, sql::SQLString timestamp, sql::SQLString art_piece, sql::SQLString color) {
+emojiEntry::emojiEntry(sql::SQLString id, sql::SQLString timestamp, sql::SQLString emoji_code) {
     this->id = id;
     this->timestamp = timestamp;
-    this->art_piece = art_piece;
-    this->color = color;
+    this->emoji_code = emoji_code;
+
 }
 
 string emojiEntry::text() {
 	string result = id + ". ";
 	result += timestamp + " ";
-	result += art_piece + " ";
-	result += color;
+	result += emoji_code;
+	
 	return result;
 
 }
@@ -22,7 +22,7 @@ string emojiEntry::text() {
 string emojiEntry::json() {
 	string result = "{\"id\":\"" + id + "\",";
 	result += "\"timestamp\":\"" + timestamp + "\",";
-	result += "\"art_piece\":\"" + art_piece + "\",";
-	result += "\"color\":\"" + color + "\"}";
+	result += "\"emoji_code\":\"" + emoji_code + "\"}";
+	
 	return result;
 }
