@@ -27,7 +27,7 @@ public:
     galleryDB();
     //void addEntryEmoji(string id, string timestamp, string emoji_code);
     //void addEntryColor(string id, string timestamp, string art_piece, string color);
-    void addEntryWord(string id, string timestamp, string word); 
+    void addEntryWord(string word); 
     //map<string, string> sumEmoji(string ____); //GO BACK AND NAME THIS STRING PARAMETER + EDIT MAP DATA TYPES
     //map<string, int> sumColor(string ____); //GO BACK AND NAME THIS STRING PARAMETER + EDIT MAP DATA TYPES
     //map<string, int> sumWord(string _____); //GO BACK AND NAME THIS STRING PARAMETER + EDIT MAP DATA TYPES
