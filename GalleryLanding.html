@@ -22,6 +22,28 @@
         <div class = body>
         <div class="background-image">
                 <img src= "gund_img/gund2.jpeg">
+                <div class="button">
+                    <button class="login-button" onclick="document.getElementById('admin').style.display='block'">Admin Portal</button>
+                </div>
+                <div id="admin" class="modal">
+                    <form class="modal-content animate">
+                  
+                      <div class="container">
+                        <label for="uname"><b>Username</b></label>
+                        <input type="text" placeholder="Enter Username" name="username" required>
+                  
+                        <label for="psw"><b>Password</b></label>
+                        <input type="password" placeholder="Enter Password" name="password" required>
+                          
+                        <button>Login</button>
+                      </div>
+                  
+                      <div class="container" style="background-color:#f1f1f1">
+                        <button type="button" onclick="document.getElementById('admin').style.display='none'" class="cancelbtn">Cancel</button>
+                      </div>
+                    </form>
+                  </div>              
+            </div>
         </div>
         <div class = "content-section">
             <h1> Thank you for visiting <br> Gund Gallery</h1>
@@ -30,6 +52,6 @@
                 <a href="GalleryResponse.html">Tell us your experience!</a>
             </div>
         </div>
-    </div>
+        <script src="gallery.js"></script>
     </body>
 </html>

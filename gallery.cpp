@@ -46,8 +46,18 @@ int main(void) {
     res.set_content(result, "text/json");
     res.status = 200;
   });
+
+  svr.Get(R"(/retrieve/art_pieces/))", [&](const Request& req, Response& res) {
+    res.set_header("Access-Control-Allow-Origin","*");
+    gldb.retrieveArt();
+
+    res.set_content(result, "text/json")
+    res.status =  200;
+  }
+
   
   cout << "Server listening on port " << port << endl;
   svr.listen("0.0.0.0", port);
   
+   
 }
