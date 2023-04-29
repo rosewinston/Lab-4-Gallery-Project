@@ -26,6 +26,7 @@ int main(void) {
   
   // Object of RestchatDB
   galleryDB gldb;
+  gldb.addEntryWord("omgitsawordwow");
   
   	
   /* "/" just returnsAPI name */
