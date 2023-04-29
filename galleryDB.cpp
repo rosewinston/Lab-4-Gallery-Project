@@ -33,6 +33,40 @@ galleryDB::galleryDB() {
    	
 }
 
+void galleryDB::addEntryWord(string word){
+
+	if (!conn) {
+   		cerr << "Invalid database connection" << endl;
+   		exit (EXIT_FAILURE);
+  	}
+
+  	std::auto_ptr<sql::Statement> stmnt(conn->createStatement());
+
+  	stmnt->executeQuery("INSERT INTO word_response(word) VALUES ('"+word+"')");
+}
+
+
+void galleryDB::addColor(string art_piece, string color){
+
+	if (!conn) {
+   		cerr << "Invalid database connection" << endl;
+   		exit (EXIT_FAILURE);
+  	}
+
+  	std::auto_ptr<sql::Statement> stmnt(conn->createStatement());
+
+  	stmnt->executeQuery("INSERT INTO color_response(art_piece, color) VALUES ('"+art_piece+"','"+color+"')");
+}
+
+
+
+
+
+
+
+
+
+
 // vector<userEntry> restChatDB::find(string user, string mail) {
 // 
 // 	vector<userEntry> list;
@@ -85,17 +119,3 @@ galleryDB::galleryDB() {
 //     
 //     return found;
 // }
-
-
-void galleryDB::addColor(string art_piece, string color){
-
-	if (!conn) {
-   		cerr << "Invalid database connection" << endl;
-   		exit (EXIT_FAILURE);
-  	}
-
-  	std::auto_ptr<sql::Statement> stmnt(conn->createStatement());
-
-  	stmnt->executeQuery("INSERT INTO color_response(art_piece, color) VALUES ('"+art_piece+"','"+color+"')");
-}
-
