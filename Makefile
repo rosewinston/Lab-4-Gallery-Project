@@ -39,7 +39,7 @@ PutHTML:
 	cp GalleryLanding.html /var/www/html/gallery/
 	cp -R gund_img /var/www/html/gallery/
 	
-	//adding wordFloat 
+	
 	cp words.html /var/www/html/gallery/
 	cp words.css /var/www/html/gallery/
 	cp words.js /var/www/html/gallery/
