@@ -1,6 +1,6 @@
 #include "emojiEntry.h"
 
-colorEntry::emojiEntry() {
+emojiEntry::emojiEntry() {
 }
 
 emojiEntry::emojiEntry(sql::SQLString id, sql::SQLString timestamp, sql::SQLString emoji_code) {
