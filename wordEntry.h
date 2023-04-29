@@ -7,8 +7,8 @@ using namespace std;
 
 class wordEntry {
 public:
-     colorEntry();
-     colorEntry(sql::SQLString id, sql::SQLString timestamp, sql::SQLString word);
+     wordEntry();
+     wordEntry(sql::SQLString id, sql::SQLString timestamp, sql::SQLString word);
      string text();
      string json();
      
