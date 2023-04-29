@@ -47,6 +47,20 @@ int main(void) {
     res.status = 200;
   });
   
+  svr.Get(R"(/response/word/(.*))", [&](const Request& req, Response& res) {
+    res.set_header("Access-Control-Allow-Origin","*");
+    string word = req.matches[1];
+    string result;
+    
+    gldb.addEntryWord(word);
+    result = "{\"status\":\"success\",\"word\":\"" + word + "\"}";
+    
+    res.set_content(result, "text/json");
+    res.status = 200;
+  });
+  
+  
+  
   cout << "Server listening on port " << port << endl;
   svr.listen("0.0.0.0", port);
   
