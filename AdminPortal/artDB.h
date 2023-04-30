@@ -31,7 +31,7 @@ public:
     artDB();
     vector<contactEntry> find(string search);
     contactEntry fetchEntry(string id);
-    void addEntry(string name;
+    void addEntry(string name);
     void editEntry(string idnum,string name);
     void deleteEntry(string idnum);
 private:
