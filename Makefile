@@ -27,8 +27,17 @@ gallery.o: gallery.cpp httplib.h
 	$(CC) -c $(CFLAGS) gallery.cpp
 
 gallery: gallery.o galleryDB.o colorEntry.o emojiEntry.o wordEntry.o
-	$(CC) gallery.o galleryDB.o colorEntry.o emojiEntry.o wordEntry.o -o gallery -L/usr/local/lib -lmariadbcpp
+	$(CC) gallery.o galleryDB.o colorEntry.o emojiEntry.o wordEntry.o artEntry.o AdminPortal.o -o gallery -L/usr/local/lib -lmariadbcpp
 	
+artDB.o: artDB.cpp artDB.h
+	$(CC) -c $(CFLAGS) -I/usr/include/cppconn artDB.cpp
+	
+artEntry.o: artEntry.cpp artEntry.h
+	$(CC) -c $(CFLAGS) artEntry.cpp
+
+AdminPortal.o: AdminPortal.cpp httplib.h
+	$(CC) -c $(CFLAGS) gallery.cpp
+
 
 
 PutHTML:
@@ -38,6 +47,7 @@ PutHTML:
 	cp gallery.js /var/www/html/gallery/
 	cp GalleryLanding.html /var/www/html/gallery/
 	cp -R gund_img /var/www/html/gallery/
+	cp AdminPortal.html /var/www/html/gallery/
 	
 	
 	cp words.html /var/www/html/gallery/
