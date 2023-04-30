@@ -75,6 +75,21 @@ int main(void) {
     res.status = 200;
   });
   
+   svr.Get("R(/admin/join/(.*)/(.*))",  [&](const Request& req, Response& res) {
+    res.set_header("Access-Control-Allow-Origin","*");
+    string username = req.matches[1];
+    string password = req.matches[2];
+    string result;
+    
+    if (username = "GalleryAdmin" && password = "WYjX5aKujKh67m") {
+        result = "{\"status\":\"success\"}";
+    }
+    else {
+      result = "{\"status\":\"failure\"}";
+    }
+    res.set_content(result, "text/json");
+    res.status = 200;
+  });
   
   
   cout << "Server listening on port " << port << endl;
