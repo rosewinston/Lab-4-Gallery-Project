@@ -81,7 +81,7 @@ int main(void) {
     string password = req.matches[2];
     string result;
     
-    if (username = "GalleryAdmin" && password = "WYjX5aKujKh67m") {
+    if (username == "GalleryAdmin" && password == "WYjX5aKujKh67m") {
         result = "{\"status\":\"success\"}";
     }
     else {
