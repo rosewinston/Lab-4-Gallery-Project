@@ -8,6 +8,7 @@ var inthandle2;
 var color = '#343a40';
 var username = "";
 var password = "";
+var word = ""; 
 
 // LANDING PAGE JS
 
