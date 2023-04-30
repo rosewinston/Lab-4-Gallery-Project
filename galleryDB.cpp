@@ -61,6 +61,7 @@ void galleryDB::addColor(string art_piece, string color){
 
 vector<string> galleryDB::sumWord(string timestamp){
 	string timestamp;
+	timestamp.append("%");
 	string word;
 	vector<string> wordList; 
 	if (!conn)
