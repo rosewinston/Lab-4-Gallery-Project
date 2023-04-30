@@ -81,16 +81,45 @@ function setColor(color) {
     document.getElementById('navbar').style.backgroundColor = color;}
 
 
+// DROPDOWN FOR ART PIECE
+getAllArts();
+
+function getAllArts(){
+	fetch(baseUrl+'getAllArts', {
+		method: 'get'	
+	})
+}
+
 
 // ADD COLOR TO DATABASE input.addEventListener('click', ));
-      
 // apply the event listener to all images
 document.querySelectorAll('.emotion-button').forEach((element) => {
 	element.addEventListener('click', event => {
 		var colorID = event.currentTarget.id;
-		addColor(colorID);
+		var art_piece = document.getElementById('slct').innerHTML;
+		addColor(art_piece, colorID);
 	});
 });
+
+function completeAddColor(results){
+	var art_piece = results['art_piece'];
+	var color = results['color'];
+// 	mytoken = results['token'];
+	console.log("Art: "+art_piece+", Color: "+color);	
+}
+
+function addColor(art_piece, colorID) {
+	fetch(baseUrl+'/response/addColor/'+art_piece+'/'+colorID, {
+        method: 'get'
+    })
+    .then (response => response.json() )
+    .then (data =>completeAddColor(data))
+    .catch(error => {
+        {alert("Error: Something went wrong:"+error);}
+    })
+}
+
+
 
 function artDropdown(data) {
     var dropdown = '<a class="dropdown-item" href="#" value="0">Select Art Piece</a>';
@@ -125,24 +154,7 @@ function getArt() {
 
 }
 
-function completeAddColor(results){
-	var art_piece = results['art_piece'];
-	var color = results['color'];
-// 	mytoken = results['token'];
-	console.log("Art: "+art_piece+", Color: "+color);	
-}
 
-function addColor(colorID) {
-	var art_piece = "Prototype Test";
-	fetch(baseUrl+'/response/addColor/'+art_piece+'/'+colorID, {
-        method: 'get'
-    })
-    .then (response => response.json() )
-    .then (data =>completeAddColor(data))
-    .catch(error => {
-        {alert("Error: Something went wrong:"+error);}
-    })
-}
 
 function addWord(word) {
 	fetch(baseUrl+'/response/addWord/'+word, {

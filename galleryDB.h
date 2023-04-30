@@ -12,6 +12,7 @@
 #include "colorEntry.h"
 #include "emojiEntry.h"
 #include "wordEntry.h"
+#include "AdminPortal/artEntry.h"
 
 #ifndef GALLERYDB_H
 #define GALLERYDB_H
@@ -36,6 +37,8 @@ public:
     void addColor(string art_piece, string color);
     // void editColor(string idnum, string username, string email, string password);
     void deleteColor(string idnum);
+    
+    
     
     // verify if username matches database
     // bool verifyLogin(string user, string password);

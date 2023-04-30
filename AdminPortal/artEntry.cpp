@@ -3,21 +3,19 @@
 artEntry::artEntry() {
 }
 
-artEntry::artEntry(sql::SQLString n, sql::SQLString I){
-    name = f;
-    ID=I;
+artEntry::artEntry(sql::SQLString id, sql::SQLString name){
+    this->ID = id;
+    this->Name = name;
 }
 
 string artEntry::text() {
 	string result = ID + ". ";
-	result += name + " ";
+	result += Name + " ";
 	return result;
-
 }
 
 string artEntry::json() {
 	string result = "{\"ID\":\"" + ID + "\",";
-	result += "\"first\":\"" + first +  "\"}";
+	result += "\"Name\":\"" + Name +  "\"}";
 	return result;
-
 }

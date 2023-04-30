@@ -35,6 +35,12 @@ int main(void) {
     res.set_content("Chat API", "text/plain"); 
   });
   
+  // Get all art pieces names
+  svr.Get(R"(/response/getAllArts)", [&](const Request& req, Response& res){
+  	res.set_header("Access-Control-Allow-Origin","*");
+  	gldb.getAllArts();
+  });
+  
   svr.Get(R"(/response/addColor/(.*)/(.*))", [&](const Request& req, Response& res) {
     res.set_header("Access-Control-Allow-Origin","*");
     string art_piece = req.matches[1];
@@ -54,7 +60,7 @@ int main(void) {
 
     res.set_content(result, "text/json")
     res.status =  200;
-  }
+  });
 
   
   svr.Get(R"(/response/word/(.*))", [&](const Request& req, Response& res) {
