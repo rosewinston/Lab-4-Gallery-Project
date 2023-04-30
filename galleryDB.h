@@ -37,6 +37,8 @@ public:
     void addColor(string art_piece, string color);
     // void editColor(string idnum, string username, string email, string password);
     void deleteColor(string idnum);
+    // function to get all art names
+    vector<string> getAllArts();
     
     
     
