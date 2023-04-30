@@ -24,6 +24,17 @@ window.onclick = function(event) {
 
 document.getElementById('admin-join').addEventListener("click", adminLogin);
 
+function completeLogin(data) {
+    var status = results['status'];
+    if (status != "success") {
+        alert("Incorrect Username or Password");
+        return;
+    }
+    else {
+        window.location.href = "AdminPortal/AdminPortal.html";
+    }
+}
+
 function adminLogin() {
    username = document.getElementById('uname').value;
    password = document.getElementById('pword').value;
