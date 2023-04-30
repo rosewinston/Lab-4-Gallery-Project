@@ -50,7 +50,7 @@ int main(void) {
 
   svr.Get(R"(/retrieve/art_pieces/))", [&](const Request& req, Response& res) {
     res.set_header("Access-Control-Allow-Origin","*");
-    gldb.retrieveArt();
+    //gldb.retrieveArt();
 
     res.set_content(result, "text/json")
     res.status =  200;
