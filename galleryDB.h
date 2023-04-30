@@ -28,9 +28,9 @@ public:
     //void addEntryEmoji(string id, string timestamp, string emoji_code);
     //void addEntryColor(string id, string timestamp, string art_piece, string color);
     void addEntryWord(string word); 
-    //map<string, string> sumEmoji(string ____); //GO BACK AND NAME THIS STRING PARAMETER + EDIT MAP DATA TYPES
-    //map<string, int> sumColor(string ____); //GO BACK AND NAME THIS STRING PARAMETER + EDIT MAP DATA TYPES
-    //map<string, int> sumWord(string _____); //GO BACK AND NAME THIS STRING PARAMETER + EDIT MAP DATA TYPES
+    //map<string, string> sumEmoji(string timestamp); //GO BACK AND NAME THIS STRING PARAMETER + EDIT MAP DATA TYPES
+    //map<string, int> sumColor(string timestamp, string art_piece); //GO BACK AND NAME THIS STRING PARAMETER + EDIT MAP DATA TYPES
+    vector<string> sumWord(string timestamp); //GO BACK AND NAME THIS STRING PARAMETER + EDIT MAP DATA TYPES
     // vector<userEntry> find(string user, string mail);
     // userEntry fetchEntry(string idnum);
     void addColor(string art_piece, string color);
