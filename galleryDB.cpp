@@ -80,6 +80,27 @@ vector<string> galleryDB::sumWord(string timestamp){
 	return wordList;
 }
 	
+// Get all arts function
+vector<string> galleryDB::getAllArts() {
+	vector<string> list;
+	if (!conn) {
+		cerr << "Invalid database connection" << endl;
+		exit(EXIT_FAILURE);
+	}
+	std::unique_ptr<sql::Statement> stmnt(conn->createStatement());
+	
+  	sql::ResultSet *res = stmnt->executeQuery(
+			"SELECT DISTINCT Name FROM art_pieces"
+	);
+    
+    // Loop through and print results
+    while (res->next()) {
+    	string art;
+	    list.push_back(art);
+    }
+    
+    return list;
+}
 
 
 
