@@ -58,8 +58,24 @@ void galleryDB::addColor(string art_piece, string color){
   	stmnt->executeQuery("INSERT INTO color_response(art_piece, color) VALUES ('"+art_piece+"','"+color+"')");
 }
 
-
-
+//MICHELLE COME BACK AND CONTIUNE THIS 
+vector<string> galleryDB::sumWord(string timestamp){
+	string timestamp;
+	string word;
+	if (!conn)
+	{
+		cerr << "Invalid database connection" << endl;
+		exit(EXIT_FAILURE);
+	}
+	std::auto_ptr<sql::Statement> stmnt(conn->createStatement());
+	sql::ResultSet *res = stmnt->executeQuery("SELECT word FROM word_response WHERE timestamp like '" + timestamp + "'");
+	while (res->next())
+	{
+		color = res->getString("Color");
+	}
+	return color;
+}
+	
 
 
 
