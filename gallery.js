@@ -143,4 +143,21 @@ function addColor(colorID) {
     })
 }
 
+function addWord(word) {
+	fetch(baseUrl+'/response/addWord/'+word, {
+        method: 'get'
+    })
+    .then (response => response.json() )
+    .then (data =>completeAddWord(data))
+    .catch(error => {
+        {alert("Error: Something went wrong:"+error);}
+    })
+}
+
+function completeAddWord(results){
+	var word = results['word'];
+	console.log("Word: "+word);	
+}
+
+
 //
