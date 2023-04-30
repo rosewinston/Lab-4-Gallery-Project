@@ -32,7 +32,7 @@ gallery: gallery.o galleryDB.o colorEntry.o emojiEntry.o wordEntry.o
 
 
 PutHTML:
-	cp GalleryResponse.html /var/www/html/gallery/
+	cp ColorResponse.html /var/www/html/gallery/
 	cp GalleryFeedback.html /var/www/html/gallery/
 	cp -R css /var/www/html/gallery/
 	cp gallery.js /var/www/html/gallery/
