@@ -38,7 +38,26 @@ int main(void) {
   // Get all art pieces names
   svr.Get(R"(/response/getAllArts)", [&](const Request& req, Response& res){
   	res.set_header("Access-Control-Allow-Origin","*");
-  	gldb.getAllArts();
+  	vector<string> allArts = gldb.getAllArts();
+  	string result;
+  	if (allArts.size() == 0){
+  		result = "{\"status\": \"failed\"}";
+  	}
+  	else {
+  		result = "{\"status\": \"success\", ";
+  		string arts = "\"all_arts\":[";
+  		bool first = true;
+  		for (auto &art : allArts) {
+  			if (not first) result += ",";
+			result += art;
+			first = false;
+  		}
+  		arts += "]}";
+  		result += arts;
+  	}
+  	
+  	res.set_content(result, "text/json");
+    res.status = 200;
   });
   
   svr.Get(R"(/response/addColor/(.*)/(.*))", [&](const Request& req, Response& res) {
