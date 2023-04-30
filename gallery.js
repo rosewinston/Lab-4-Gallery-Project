@@ -95,10 +95,32 @@ function setColor(color) {
 // DROPDOWN FOR ART PIECE
 getAllArts();
 
+function siteDropdown(data) { //currently working --tam
+	return;
+}
+
+function completeGetArts(results){
+	if (!results["success"]) {
+		// document.querySelector('#output').innerHTML = ErrQuery+": get sites";
+		return;
+	}
+	data = results['all_arts'];
+	siteDropdown(data);
+    updateSiteList();  // Create dropdown list
+    siteMap = data; // Save map of MAC addressed to site names
+    // Get and display live watts for each active site.
+    getSitesWatts();
+}
+
 function getAllArts(){
 	fetch(baseUrl+'getAllArts', {
 		method: 'get'	
 	})
+	.then (response => response.json())
+    .then (data =>completeGetArts(data))
+    .catch(error => {
+        {alert("Error: Something went wrong:"+error);}
+    })
 }
 
 
