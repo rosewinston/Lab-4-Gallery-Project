@@ -70,3 +70,34 @@ img {
     transition: 0.5s ease;
 }
 
+.login-info {
+    width: 100%;
+    position: absolute;
+    text-align: center;
+    padding: 0px 5px;
+    bottom: 8px;
+}
+
+.login-info p{
+    color: #fff;
+}
+
+.login-info a {
+    font-size: 16px;
+    color: #bc6c25;
+    display: inline-block;
+}
+
+@media screen and (max-width: 768px) {
+    .content-section h1{
+        font-size: 40px;
+    }
+    .content-section p{
+        font-size: 16px;
+    }
+    .content-section .button a{
+        font-size: 20px;
+        padding: 9px 15px;
+    }
+}
+
