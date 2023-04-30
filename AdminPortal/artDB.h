@@ -20,9 +20,9 @@
 #ifndef CONTACTDB_H
 #define CONTACTDB_H
 
-#define DB_URL "jdbc:mariadb://localhost:3306/SoftDevContacts"
-#define USER "root"
-#define PASS "0606"
+#define DB_URL "jdbc:mariadb://18.222.189.198:3306/gallery"
+#define USER "lab4team"
+#define PASS "iloveskon"
 
 using namespace std;
 
@@ -31,7 +31,7 @@ public:
     artDB();
     vector<contactEntry> find(string search);
     contactEntry fetchEntry(string id);
-    void addEntry(string name);
+    void addEntry(string name)
     void editEntry(string idnum,string name);
     void deleteEntry(string idnum);
 private:
