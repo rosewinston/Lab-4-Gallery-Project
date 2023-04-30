@@ -120,3 +120,4 @@ void artDB::deleteEntry(string idnum){
   std::auto_ptr<sql::Statement> stmt(conn->createStatement());
 
   stmt->execute("DELETE FROM contacts WHERE ID='"+idnum+"'");
+}
