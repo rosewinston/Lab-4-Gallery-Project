@@ -26,8 +26,8 @@ galleryDB.o: galleryDB.cpp galleryDB.h
 gallery.o: gallery.cpp httplib.h
 	$(CC) -c $(CFLAGS) gallery.cpp
 
-//artDB.o: artDB.cpp artDB.h
-	//$(CC) -c $(CFLAGS) -I/usr/include/cppconn artDB.cpp
+artDB.o: artDB.cpp artDB.h
+	$(CC) -c $(CFLAGS) -I/usr/include/cppconn artDB.cpp
 	
 artEntry.o: artEntry.cpp artEntry.h
 	$(CC) -c $(CFLAGS) artEntry.cpp
