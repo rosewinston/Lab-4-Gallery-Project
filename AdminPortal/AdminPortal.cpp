@@ -8,7 +8,6 @@
 
 #include "httplib.h"
 #include "artDB.h"
-#include "artEntry.h"
 const int port = 5004;
 
 using namespace std;
