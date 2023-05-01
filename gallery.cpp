@@ -14,6 +14,18 @@ using namespace std;
 
 const int port = 5005;
 
+string getWordJSON(vector<string> &wordList){
+	bool first = true;
+	string result = "{\"words\":[";
+	for (string word : wordList){
+		if (not first) result += ",";
+		result += "\"" + word + "\"";
+		first = false;
+ 	}
+	result += "]}";
+	return result;
+   }
+
 int main(void) {
   Server svr;
   // int nextUser=0;
@@ -93,6 +105,19 @@ int main(void) {
     res.set_content(result, "text/json");
     res.status = 200;
   });
+	
+  svr.Get(R"(/retrieve/words/(.*))", [&](const httplib::Request& req, httplib::Response& res) {
+    res.set_header("Access-Control-Allow-Origin","*");
+
+    string timestamp = req.matches[1];
+    vector<string> wordResult = gldb.sumWord(timestamp); 
+    string json = getWordJSON(wordResult); 
+	  
+    res.set_content(json, "text/json");
+    res.status = 200;
+  });
+	
+	
   
    svr.Get("R(/admin/join/(.*)/(.*))",  [&](const Request& req, Response& res) {
     res.set_header("Access-Control-Allow-Origin","*");
