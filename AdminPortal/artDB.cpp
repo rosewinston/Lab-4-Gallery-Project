@@ -48,7 +48,7 @@ vector<artEntry> artDB::find(string search) {
     
     // Execute query
     sql::ResultSet *res = stmnt->executeQuery(
-			"SELECT * FROM art_pieces WHERE Name like '%"+search+"%);
+			"SELECT * FROM art_pieces WHERE Name like '%"+search+"%");
     
     // Loop through and print results
     while (res->next()) {
