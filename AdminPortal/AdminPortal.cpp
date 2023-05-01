@@ -29,7 +29,7 @@ string jsonResults(vector<artEntry> pbList) {
 int main() {
 	httplib::Server svr;
 
-  	artDatabasae artDB; // Art Database SQL Interface Object
+  	artDB ardb; // Art Database SQL Interface Object
   
   	vector<artEntry> results;
 
@@ -41,7 +41,7 @@ int main() {
   	svr.Get(R"(/contact/find)", [&](const httplib::Request& req, httplib::Response& res) {
     	res.set_header("Access-Control-Allow-Origin","*");
 
-    	results = artDB.find("");
+    	results = ardb.find("");
     	string json = jsonResults(results);
     	res.set_content(json, "text/json");
     	res.status = 200;
@@ -51,7 +51,7 @@ int main() {
     	res.set_header("Access-Control-Allow-Origin","*");
 
     	string last = req.matches[1];
-    	results = artDB.find(last);
+    	results = ardb.find(last);
     	string json = jsonResults(results);
     	res.set_content(json, "text/json");
     	res.status = 200;
@@ -62,7 +62,7 @@ int main() {
     	res.set_header("Access-Control-Allow-Origin","*");
 
     	string type = req.matches[1];
-    	results = artDB.findByType(type);
+    	results = ardb.findByType(type);
     	string json = jsonResults(results);
     	cout << "type: " << json << endl;
     	res.set_content(json, "text/json");
@@ -73,7 +73,7 @@ int main() {
     	res.set_header("Access-Control-Allow-Origin","*");
 
     	string name = req.matches[1];
-    	artDB.addEntry(name);
+    	ardb.addEntry(name);
 
     	res.set_content("{\"status\":\"success\"}", "text/json");
     	res.status = 200;
@@ -84,7 +84,7 @@ int main() {
 
     	string ID = req.matches[1];
     	string name = req.matches[2];
-    	artDB.editEntry(ID,name);
+    	ardb.editEntry(ID,name);
 
     	res.set_content("{\"status\":\"success\"}", "text/json");
     	res.status = 200;
@@ -94,7 +94,7 @@ int main() {
     	res.set_header("Access-Control-Allow-Origin","*");
 
     	string ID = req.matches[1];
-		artDB.deleteEntry(ID);
+		ardb.deleteEntry(ID);
     	res.set_content("{\"status\":\"success\"}", "text/json");
     	res.status = 200;
   	});  
