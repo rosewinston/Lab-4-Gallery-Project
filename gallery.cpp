@@ -33,6 +33,7 @@ string getWordJSON(vector<string> &wordList){
 		result += "]}";
 		return result;
    }
+}
 
 int main(void) {
   Server svr;
