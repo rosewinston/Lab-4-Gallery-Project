@@ -27,13 +27,13 @@ gallery.o: gallery.cpp httplib.h
 	$(CC) -c $(CFLAGS) gallery.cpp
 
 artDB.o: AdminPortal/artDB.cpp artDB.h
-	$(CC) -c $(CFLAGS) -I/usr/include/cppconn artDB.cpp
+	$(CC) -c $(CFLAGS) -I/usr/include/cppconn AdminPortal/artDB.cpp
 	
 artEntry.o: AdminPortal/artEntry.cpp artEntry.h
-	$(CC) -c $(CFLAGS) artEntry.cpp
+	$(CC) -c $(CFLAGS) AdminPortal/artEntry.cpp
 
 AdminPortal.o: AdminPortal/AdminPortal.cpp httplib.h
-	$(CC) -c $(CFLAGS) AdminPortal.cpp
+	$(CC) -c $(CFLAGS) AdminPortal/AdminPortal.cpp
 
 gallery: gallery.o galleryDB.o colorEntry.o emojiEntry.o wordEntry.o artDB.o artEntry.o AdminPortal.o
 	$(CC) gallery.o galleryDB.o colorEntry.o emojiEntry.o wordEntry.o artEntry.o AdminPortal.o artDB.o -o gallery -L/usr/local/lib -lmariadbcpp
