@@ -2,7 +2,6 @@
 #include <iostream>
 #include <mariadb/conncpp.hpp>
 #include "artDB.h"
-#include "artEntry.h"
 
 
 
