@@ -61,7 +61,7 @@ vector<artEntry> artDB::find(string search) {
 
 }
 
-/*
+
 void artDB::addEntry(string name){
 
 	if (!conn) {
@@ -122,4 +122,4 @@ void artDB::deleteEntry(string idnum){
 
   stmt->execute("DELETE FROM contacts WHERE ID='"+idnum+"'");
 }
-*/
+
