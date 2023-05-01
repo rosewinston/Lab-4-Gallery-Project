@@ -188,19 +188,33 @@ function getArt() {
 }
 
 
+document.getElementById('submit-btn').addEventListener("click", getWord);
 
-function addWord(word) {
-	fetch(baseUrl+'/response/addWord/'+word, {
-        method: 'get'
-    })
-    .then (response => response.json() )
-    .then (data =>completeAddWord(data))
-    .catch(error => {
-        {alert("Error: Something went wrong:"+error);}
-    })
+function completeLogin(data) {
+    var status = results['status'];
+    if (status != "success") {
+        alert("Incorrect Username or Password");
+        return;
+    }
+    else {
+        window.location.href = "AdminPortal/AdminPortal.html";
+    }
 }
 
-function completeAddWord(results){
+function getWord() {
+   word = document.getElementById('word-response').value;
+   fetch(baseUrl + '/response/'+word, {
+    method: 'get'
+   })
+   .then(response => response.json())
+   .then(data => completeGetWord(data))
+   .catch(error => {
+    {alert("Error: Something went wrong:" + error); }
+   })
+}
+
+
+function completeGetWord(results){
 	var word = results['word'];
 	console.log("Word: "+word);	
 }
