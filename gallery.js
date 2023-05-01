@@ -190,17 +190,6 @@ function getArt() {
 
 document.getElementById('submit-btn').addEventListener("click", getWord);
 
-function completeLogin(data) {
-    var status = results['status'];
-    if (status != "success") {
-        alert("Incorrect Username or Password");
-        return;
-    }
-    else {
-        window.location.href = "AdminPortal/AdminPortal.html";
-    }
-}
-
 function getWord() {
    word = document.getElementById('word-response').value;
    fetch(baseUrl + '/response/'+word, {
