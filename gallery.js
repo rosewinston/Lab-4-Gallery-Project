@@ -95,7 +95,7 @@ function setColor(color) {
 // DROPDOWN FOR ART PIECE
 getAllArts();
 
-function siteDropdown(data) { //currently working --tam
+function artDropdown(data) { //currently working --tam
 	var dropdown = "";
 	for (var key in data){
 		dropdown += "<option value='"+key+"'>"+data[key]+"<\option>";
@@ -110,12 +110,8 @@ function completeGetArts(results){
 		return;
 	}
 	data = results['all_arts'];
-	siteDropdown(data);
-    updateSiteList();  // Create dropdown list
-    siteMap = data; // Save map of MAC addressed to site names
-    // Get and display live watts for each active site.
-    getSitesWatts();
-}
+	artDropdown(data);
+    }
 
 function getAllArts(){
 	fetch(baseUrl+'getAllArts', {
@@ -142,7 +138,6 @@ document.querySelectorAll('.emotion-button').forEach((element) => {
 function completeAddColor(results){
 	var art_piece = results['art_piece'];
 	var color = results['color'];
-// 	mytoken = results['token'];
 	console.log("Art: "+art_piece+", Color: "+color);	
 }
 
