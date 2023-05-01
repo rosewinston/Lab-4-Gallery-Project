@@ -57,17 +57,6 @@ int main() {
     	res.status = 200;
   	});
   	
-
-  	svr.Get(R"(/contact/type/(.*))", [&](const httplib::Request& req, httplib::Response& res) {
-    	res.set_header("Access-Control-Allow-Origin","*");
-
-    	string type = req.matches[1];
-    	results = ardb.findByType(type);
-    	string json = jsonResults(results);
-    	cout << "type: " << json << endl;
-    	res.set_content(json, "text/json");
-    	res.status = 200;
-  	});  
   	
   	svr.Get(R"(/contact/add/(.*))", [&](const httplib::Request& req, httplib::Response& res) {
     	res.set_header("Access-Control-Allow-Origin","*");
