@@ -29,7 +29,7 @@ gallery.o: gallery.cpp httplib.h
 artDB.o: AdminPortal/artDB.cpp artDB.h
 	$(CC) -c $(CFLAGS) -I/usr/include/cppconn AdminPortal/artDB.cpp
 	
-artEntry.o: AdminPortal/artEntry.cpp artEntry.h
+artEntry.o: AdminPortal/artEntry.cpp AdminPortal/artEntry.h
 	$(CC) -c $(CFLAGS) AdminPortal/artEntry.cpp
 
 AdminPortal.o: AdminPortal/AdminPortal.cpp httplib.h
