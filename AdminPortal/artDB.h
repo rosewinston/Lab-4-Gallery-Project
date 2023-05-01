@@ -17,8 +17,8 @@
 //#include <cppconn/prepared_statement.h>
 #include "artEntry.h"
 
-#ifndef CONTACTDB_H
-#define CONTACTDB_H
+#ifndef ARTDB_H
+#define ARTDB_H
 
 #define DB_URL "jdbc:mariadb://18.222.189.198:3306/gallery"
 #define USER "lab4team"
