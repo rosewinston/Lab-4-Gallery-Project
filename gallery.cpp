@@ -15,15 +15,23 @@ using namespace std;
 const int port = 5005;
 
 string getWordJSON(vector<string> &wordList){
-	bool first = true;
-	string result = "{\"words\":[";
-	for (string word : wordList){
-		if (not first) result += ",";
-		result += "\"" + word + "\"";
-		first = false;
- 	}
-	result += "]}";
-	return result;
+	string result; 
+	
+	if (wordList.size()==0){
+		result = "{\"status\": \"failed\"}";
+	}
+	else{
+		result = "{\"status\": \"success\", ";
+		bool first = true;
+		string words = "\"words\":[";
+		
+		for (string word : wordList){
+			if (not first) result += ",";
+			result += "\"" + word + "\"";
+			first = false;
+ 		}
+		result += "]}";
+		return result;
    }
 
 int main(void) {
