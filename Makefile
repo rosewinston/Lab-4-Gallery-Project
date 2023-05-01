@@ -36,7 +36,7 @@ artEntry.o: artEntry.cpp artEntry.h
 	$(CC) -c $(CFLAGS) artEntry.cpp
 
 AdminPortal.o: AdminPortal.cpp httplib.h
-	$(CC) -c $(CFLAGS) gallery.cpp
+	$(CC) -c $(CFLAGS) AdminPortal.cpp
 
 
 
