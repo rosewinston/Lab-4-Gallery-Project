@@ -30,7 +30,7 @@ class artDB {
 public:
     artDB();
     vector<artEntry> find(string search);
-    contactEntry fetchEntry(string id);
+    artEntry fetchEntry(string id);
     void addEntry(string name);
     void editEntry(string idnum,string name);
     void deleteEntry(string idnum);
