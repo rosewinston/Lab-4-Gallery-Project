@@ -26,7 +26,7 @@ string jsonResults(vector<artEntry> pbList) {
 	return res;
 }
 
-int mainAlt() {
+int main() {
 	httplib::Server svr;
 
   	artDB ardb; // Art Database SQL Interface Object
