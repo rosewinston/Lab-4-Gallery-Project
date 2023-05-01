@@ -77,7 +77,7 @@ int main(void) {
     res.set_header("Access-Control-Allow-Origin","*");
     //gldb.retrieveArt();
 
-    res.set_content(result, "text/json")
+    //res.set_content(result, "text/json")
     res.status =  200;
   });
 
