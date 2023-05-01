@@ -1,96 +1,166 @@
-<!DOCTYPE html>
-<html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title> Gund Gallery Experience</title>
+@import url('https://fonts.googleapis.com/css?family=Roboto');
 
-        <!-- Favicon-->
-        <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+*{
+    margin: 0px;
+    padding:0px ;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
 
-        <!-- Font Awesome icons (free version)-->
-        <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+.body{
+    height: 100vh;
+}
+
+.background-image{
+    background: linear-gradient(rgba(0,0,0,0.50), rgba(0,0,0,0.50));
+}
+
+img {
+    height: 100vh;
+    width: 100%;
+    object-fit: cover;
+}
+
+.content-section{
+    width: 100%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -60%);
+    text-align: center;
+    padding: 0px 20px;
+}
+
+.content-section h1{
+    color:#fff;
+    font-size: 50px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
 
 
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
-        <link href="GalleryFeedback2.css"type="text/css" rel="stylesheet" />
-    </head>
+.word-box {
+    width: 50vh;
+    height: auto;
+    text-align: center;
+    text-decoration: none;
+    font-size: 25px;
+    color: #fff;
+    margin: auto;
+    padding: 10px 0px 10px 10px;
+    line-height: 1.5;
+    opacity: 95%;
+}
 
+.word-box label{
+    padding: 8px 0px;
+}
 
-    <body>
-        <div class="background-image">
-            <img src= "gund_img/gund3.jpeg">
-        </div>
-        <div class = "content-section">
-            <h1>Your feedback is valuable to us!</h1>
-            <div class="word-box" style="padding-top:3rem">
-                <label for="usr">Share a word that encapsulates how the exhibition made you feel!</label>
-                <input type="text" class="form-control" id="word-response">
-                <button class="btn btn-primary" id="submit-btn">Submit Response!</button>
-            </div>
+.btn {
+    background: #606c38;
+    border: #606c38;
+    color: #fff;
+    margin-top: 25px;
+    font-size: 20px;
+}
 
-            <div class="word-box dropdown text-center" data-dropdown>
-                <p>How do you feel about the exhibition overall?</p>
-                <button class="link" data-dropdown-button>Choose an emoji here!</button>
-                <div class="dropdown-menu dropdown-menu-center information-grid">
-                    <div>
-                        <div class="dropdown-emojis">
-                            <option href="#" class="link">&#128512;</option>
-                            <option href="#" class="link">&#128514;</option>
-                            <option href="#" class="link">&#128523;</option>
-                            <option href="#" class="link">&#128523;</option>
-                            <option href="#" class="link">&#128523;</option>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="dropdown-emojis">
-                            <option href="#" class="link">&#128523;</option>
-                            <option href="#" class="link">&#128523;</option>
-                            <option href="#" class="link">&#128523;</option>
-                            <option href="#" class="link">&#128523;</option>
-                            <option href="#" class="link">&#128523;</option>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="dropdown-emojis">
-                            <option href="#" class="link">&#128523;</option>
-                            <option href="#" class="link">&#128523;</option>
-                            <option href="#" class="link">&#128523;</option>
-                            <option href="#" class="link">&#128523;</option>
-                            <option href="#" class="link">&#128523;</option>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="dropdown-emojis">
-                            <option href="#" class="link">&#128523;</option>
-                            <option href="#" class="link">&#128523;</option>
-                            <option href="#" class="link">&#128523;</option>
-                            <option href="#" class="link">&#128523;</option>
-                            <option href="#" class="link">&#128523;</option>
-                        </div>
-                    </div>
-                    <div>
-                        <div class="dropdown-emojis">
-                            <option href="#" class="link">&#128512;</option>
-                            <option href="#" class="link">&#128514;</option>
-                            <option href="#" class="link">&#128523;</option>
-                            <option href="#" class="link">&#128523;</option>
-                            <option href="#" class="link">&#128523;</option>
-                        </div>
-                    </div>
-                </div>
-            </div>
+.btn:hover{
+    background:#283618;
+}
 
-                <a href="ColorResponse.html" class="previous">Previous</a>
-                <a href="#" class="next">Next</a>
+.word-box .dropdown {
+    width: 50vh;
+    text-align: center;
+    margin: auto;
+    padding: 10px 10px;
+}
 
-            </div>
-    </body>
+.word-box p{
+    color:#fff;
+    font-size: 25px;
+    letter-spacing: 1px;
+    padding: 30px 0px 0px 0px;
+}
 
-    <!-- Bootstrap core JS-->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-    <!-- Core theme JS-->
-    <script src="gallery.js"></script>
-</html>
+.link {
+    background:#606c38;
+    border: #606c38;
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: #fff;
+    margin-top: 0px;
+    font-size: 20px;
+    cursor:pointer;
+}
+
+.dropdown.active > .link,
+.link:hover {
+    color: #fff;
+    background:#283618;
+}
+
+.dropdown-menu {
+    left: 0;
+    top: 0;
+    opacity: 0;
+    pointer-events:none;
+    transform: translateY(-10px);
+    transition: opacity 150ms ease-in-out, transform 150ms ease-in-out;
+}
+
+.dropdown-menu-center {
+    left: 50% !important;
+    right: auto !important;
+    text-align: center !important;
+    transform: translate(-50%, 0) !important;
+  }
+
+.dropdown.active > .link + .dropdown-menu {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.information-grid{
+    display: grid;
+    grid-template-columns: repeat(5,max-content);
+    gap: .5rem;
+}
+
+.dropdown-emojis {
+    display:flex;
+    flex-direction:column;
+    gap: .25rem;
+}
+
+a {
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px 16px;
+  }
+  
+  a:hover {
+    background-color: #283618;
+    color:#fff;
+  }
+  
+  .previous {
+    background-color: #f1f1f1;
+    color: #283618;
+    position: fixed;
+    bottom: -170px;
+    left: 30px;
+    border-radius: 10px;
+    opacity: 75%;
+  }
+  
+  .next {
+    background-color: #606c38;
+    color: white;
+    position: fixed;
+    bottom: -170px;
+    right: 30px;
+    border-radius: 10px;
+    opacity: 75%;
+  }
