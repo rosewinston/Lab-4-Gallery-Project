@@ -29,7 +29,7 @@ using namespace std;
 class artDB {
 public:
     artDB();
-    vector<contactEntry> find(string search);
+    vector<artEntry> find(string search);
     contactEntry fetchEntry(string id);
     void addEntry(string name);
     void editEntry(string idnum,string name);
