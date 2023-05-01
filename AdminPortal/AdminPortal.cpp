@@ -14,7 +14,7 @@ using namespace std;
 
 ofstream logfile; 
 
-string jsonResults(vector<contactEntry> pbList) {
+string jsonResults(vector<artEntry> pbList) {
 	string res = "{\"results\":[";
 	for (int i = 0; i<pbList.size(); i++) {
 		res += pbList[i].json();
@@ -31,7 +31,7 @@ int main() {
 
   	artDatabasae artDB; // Art Database SQL Interface Object
   
-  	vector<contactEntry> results;
+  	vector<artEntry> results;
 
   	svr.Get("/", [](const httplib::Request & /*req*/, httplib::Response &res) {
     	res.set_header("Access-Control-Allow-Origin","*");
@@ -41,7 +41,7 @@ int main() {
   	svr.Get(R"(/contact/find)", [&](const httplib::Request& req, httplib::Response& res) {
     	res.set_header("Access-Control-Allow-Origin","*");
 
-    	results = ctdb.find("");
+    	results = artDB.find("");
     	string json = jsonResults(results);
     	res.set_content(json, "text/json");
     	res.status = 200;
@@ -51,7 +51,7 @@ int main() {
     	res.set_header("Access-Control-Allow-Origin","*");
 
     	string last = req.matches[1];
-    	results = ctdb.find(last);
+    	results = artDB.find(last);
     	string json = jsonResults(results);
     	res.set_content(json, "text/json");
     	res.status = 200;
@@ -62,7 +62,7 @@ int main() {
     	res.set_header("Access-Control-Allow-Origin","*");
 
     	string type = req.matches[1];
-    	results = ctdb.findByType(type);
+    	results = artDB.findByType(type);
     	string json = jsonResults(results);
     	cout << "type: " << json << endl;
     	res.set_content(json, "text/json");
@@ -73,7 +73,7 @@ int main() {
     	res.set_header("Access-Control-Allow-Origin","*");
 
     	string name = req.matches[1];
-    	ctdb.addEntry(name);
+    	artDB.addEntry(name);
 
     	res.set_content("{\"status\":\"success\"}", "text/json");
     	res.status = 200;
@@ -84,7 +84,7 @@ int main() {
 
     	string ID = req.matches[1];
     	string name = req.matches[2];
-    	ctdb.editEntry(ID,name);
+    	artDB.editEntry(ID,name);
 
     	res.set_content("{\"status\":\"success\"}", "text/json");
     	res.status = 200;
@@ -94,7 +94,7 @@ int main() {
     	res.set_header("Access-Control-Allow-Origin","*");
 
     	string ID = req.matches[1];
-		ctdb.deleteEntry(ID);
+		artDB.deleteEntry(ID);
     	res.set_content("{\"status\":\"success\"}", "text/json");
     	res.status = 200;
   	});  
