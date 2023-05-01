@@ -96,6 +96,11 @@ function setColor(color) {
 getAllArts();
 
 function siteDropdown(data) { //currently working --tam
+	var dropdown = "";
+	for (var key in data){
+		dropdown += "<option value='"+key+"'>"+data[key]+"<\option>";
+	};
+	document.querySelector('#slct').innerHTML = dropdown;
 	return;
 }
 
@@ -152,40 +157,6 @@ function addColor(art_piece, colorID) {
     })
 }
 
-
-
-function artDropdown(data) {
-    var dropdown = '<a class="dropdown-item" href="#" value="0">Select Art Piece</a>';
-    for(var key in data) {
-		dropdown += '<a class="dropdown-item" href="#" value="'+key+'">'+data[key]+'</a>';
-    };
-    document.querySelector('#searchtype').innerHTML = dropdown;
-    return;
-}
-
-function proccessData(results) {
-	if (!results["success"]) {
-		document.querySelector('#output').innerHTML = ErrQuery+": get sites";
-		return;
-	}
-    data=results['message'];
-    artDropdown(data);
-}
-
-// Make call to fetch all site names and MAC addresses
-function getArt() {
-	// Clear the previous results
-    document.querySelector('#output').innerHTML = "";
-    fetch(baseUrl+"retrieve/art_pieces", {
-	method: 'get'
-    })
-	.then (response => response.json() )
-        .then (data => processSites(data))
-	.catch(error => {
-	    document.querySelector('#output').innerHTML = ErrSrv+": get sites";
-	})
-
-}
 
 
 document.getElementById('submit-btn').addEventListener("click", getWord);
