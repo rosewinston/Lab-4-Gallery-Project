@@ -90,7 +90,7 @@ artEntry artDB::fetchEntry(string id){
     
     // Get first entry
     if (res->next()) {
-    	entry = artEntry(res->getString("name"));
+    	entry = artEntry(res->getString("ID"),res->getString("Name"));
     }
     return entry;
 }
