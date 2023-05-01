@@ -152,6 +152,7 @@ a {
     bottom: -170px;
     left: 30px;
     border-radius: 10px;
+    opacity: 75%;
   }
   
   .next {
@@ -161,4 +162,5 @@ a {
     bottom: -170px;
     right: 30px;
     border-radius: 10px;
+    opacity: 75%;
   }
