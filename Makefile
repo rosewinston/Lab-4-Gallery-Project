@@ -26,13 +26,13 @@ galleryDB.o: galleryDB.cpp galleryDB.h
 gallery.o: gallery.cpp httplib.h
 	$(CC) -c $(CFLAGS) gallery.cpp
 
-artDB.o: artDB.cpp artDB.h
+artDB.o: AdminPortal/artDB.cpp artDB.h
 	$(CC) -c $(CFLAGS) -I/usr/include/cppconn artDB.cpp
 	
-artEntry.o: artEntry.cpp artEntry.h
+artEntry.o: AdminPortal/artEntry.cpp artEntry.h
 	$(CC) -c $(CFLAGS) artEntry.cpp
 
-AdminPortal.o: AdminPortal.cpp httplib.h
+AdminPortal.o: AdminPortal/AdminPortal.cpp httplib.h
 	$(CC) -c $(CFLAGS) AdminPortal.cpp
 
 gallery: gallery.o galleryDB.o colorEntry.o emojiEntry.o wordEntry.o artDB.o artEntry.o AdminPortal.o
