@@ -19,7 +19,7 @@ string getWordJSON(vector<string> &wordList){
 	
 	if (wordList.size()==0){
 		result = "{\"status\": \"failed\"}";
-		return;
+		return result;
 	}
 	else{
 		result = "{\"status\": \"success\", ";
