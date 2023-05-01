@@ -51,7 +51,7 @@ vector<artEntry> artDB::find(string search) {
     
     // Loop through and print results
     while (res->next()) {
-    	artEntry entry(res->getString("Name"));
+    	artEntry entry(res->getString("ID"),res->getString("Name"));
 	    	
 	    list.push_back(entry);
 
