@@ -39,11 +39,17 @@ public:
     void deleteColor(string idnum);
     // function to get all art names
     vector<string> getAllArts();
-    
-    
-    
-    // verify if username matches database
-    // bool verifyLogin(string user, string password);
+    //find art pieces matching string
+    vector<artEntry> find(string search);
+    //get art piece that matches with the ID given
+    artEntry fetchEntry(string id);
+    // add art piece to DB
+    void addEntry(string name);
+    //edit art piece name in DB
+    void editEntry(string idnum,string name);
+    //delete art piece in DB
+    void deleteEntry(string idnum);
+   
     
 private:
     const string db_url=DB_URL;
