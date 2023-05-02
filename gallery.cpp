@@ -165,7 +165,7 @@ svr.Get("/", [](const httplib::Request & /*req*/, httplib::Response &res) {
 
 svr.Get(R"(/contact/find)", [&](const httplib::Request& req, httplib::Response& res) {
 	res.set_header("Access-Control-Allow-Origin","*");
-	results = ardb.find("");
+	results = gldb.find("");
 	string json = jsonResults(results);
 	res.set_content(json, "text/json");
 	res.status = 200;
@@ -175,7 +175,7 @@ svr.Get(R"(/contact/find/(.*))", [&](const httplib::Request& req, httplib::Respo
 	res.set_header("Access-Control-Allow-Origin","*");
 
 	string last = req.matches[1];
-	results = ardb.find(last);
+	results = gldb.find(last);
 	string json = jsonResults(results);
 	res.set_content(json, "text/json");
 	res.status = 200;
@@ -186,7 +186,7 @@ svr.Get(R"(/contact/add/(.*))", [&](const httplib::Request& req, httplib::Respon
 	res.set_header("Access-Control-Allow-Origin","*");
 
 	string name = req.matches[1];
-	ardb.addEntry(name);
+	gldb.addEntry(name);
 
 	res.set_content("{\"status\":\"success\"}", "text/json");
 	res.status = 200;
@@ -197,7 +197,7 @@ svr.Get(R"(/contact/update/(.*)/(.*))", [&](const httplib::Request& req, httplib
 
 	string ID = req.matches[1];
 	string name = req.matches[2];
-	ardb.editEntry(ID,name);
+	gldb.editEntry(ID,name);
 
 	res.set_content("{\"status\":\"success\"}", "text/json");
 	res.status = 200;
@@ -207,7 +207,7 @@ svr.Get(R"(/contact/delete/(.*))", [&](const httplib::Request& req, httplib::Res
 	res.set_header("Access-Control-Allow-Origin","*");
 
 	string ID = req.matches[1];
-		ardb.deleteEntry(ID);
+		gldb.deleteEntry(ID);
 	res.set_content("{\"status\":\"success\"}", "text/json");
 	res.status = 200;
 });  
