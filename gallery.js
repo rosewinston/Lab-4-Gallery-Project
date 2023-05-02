@@ -93,28 +93,35 @@ function setColor(color) {
 
 
 // DROPDOWN FOR ART PIECE
+// DROPDOWN FOR ART PIECE
 getAllArts();
 
-function artDropdown(data) { //currently working --tam
+function siteDropdown(data) { //currently working --tam
 	var dropdown = "";
-	for (var key in data){
-		dropdown += "<option value='"+key+"'>"+data[key]+"<\option>";
-	};
+	var countValue = 0;
+	data.forEach(function(key){
+		dropdown += "<option value='"+countValue+"'>"+key+"</option>";
+		countValue += 1;
+	})
+// 	for (var key in data){
+// 		dropdown += "<option value='"+key+"'>"+data[key]+"<\option>";
+// 	};
+	console.log(dropdown);
 	document.querySelector('#slct').innerHTML = dropdown;
 	return;
 }
 
 function completeGetArts(results){
-	if (!results["success"]) {
+	if (results["status"] != "success") {
 		// document.querySelector('#output').innerHTML = ErrQuery+": get sites";
 		return;
 	}
-	data = results['all_arts'];
-	artDropdown(data);
-    }
+	data = results['arts'];
+	siteDropdown(data);
+}
 
 function getAllArts(){
-	fetch(baseUrl+'getAllArts', {
+	fetch(baseUrl+'/response/getAllArts', {
 		method: 'get'	
 	})
 	.then (response => response.json())
@@ -123,7 +130,6 @@ function getAllArts(){
         {alert("Error: Something went wrong:"+error);}
     })
 }
-
 
 // ADD COLOR TO DATABASE input.addEventListener('click', ));
 // apply the event listener to all images
