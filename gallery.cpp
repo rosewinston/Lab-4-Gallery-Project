@@ -4,10 +4,8 @@
 #include <vector>
 #include <algorithm>
 #include "httplib.h"
-#include "galleryDB.h"
-#include "colorEntry.h"
-#include "AdminPortal/adminPortal.cpp"
-// #include "CTokenGenerator.h"
+#include "DatabaseFiles/galleryDB.h"
+#include "DatabaseFiles/colorEntry.h"
 #include <string>
 
 using namespace httplib;
