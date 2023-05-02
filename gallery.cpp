@@ -6,6 +6,7 @@
 #include "httplib.h"
 #include "galleryDB.h"
 #include "colorEntry.h"
+#include "AdminPortal/adminPortal.cpp"
 // #include "CTokenGenerator.h"
 #include <string>
 
@@ -144,6 +145,8 @@ int main(void) {
     res.set_content(result, "text/json");
     res.status = 200;
   });
+  
+  _main(svr,gldb);
   
   
   cout << "Server listening on port " << port << endl;

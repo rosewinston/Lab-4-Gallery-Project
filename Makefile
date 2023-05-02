@@ -29,8 +29,8 @@ gallery.o: gallery.cpp httplib.h
 artEntry.o: artEntry.cpp artEntry.h
 	$(CC) -c $(CFLAGS) artEntry.cpp
 
-AdminPortal.o: AdminPortal/AdminPortal.cpp httplib.h
-	$(CC) -c $(CFLAGS) AdminPortal/AdminPortal.cpp
+AdminPortal.o: AdminPortal/adminPortal.cpp httplib.h
+	$(CC) -c $(CFLAGS) AdminPortal/adminPortal.cpp
 
 gallery: gallery.o galleryDB.o colorEntry.o emojiEntry.o wordEntry.o artDB.o artEntry.o AdminPortal.o
 	$(CC) gallery.o galleryDB.o colorEntry.o emojiEntry.o wordEntry.o artEntry.o AdminPortal.o artDB.o -o gallery -L/usr/local/lib -lmariadbcpp

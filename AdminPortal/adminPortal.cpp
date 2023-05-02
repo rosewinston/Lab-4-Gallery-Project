@@ -7,8 +7,6 @@
 #include <map>
 
 #include "httplib.h"
-#include "artDB.h"
-const int port = 5004;
 
 using namespace std;
 
@@ -26,10 +24,10 @@ string jsonResults(vector<artEntry> pbList) {
 	return res;
 }
 
-int main() {
-	httplib::Server svr;
+int _main(httplib::Server svr, galleryDB ardb) {
+	//httplib::Server svr;
 
-  	artDB ardb; // Art Database SQL Interface Object
+  	//artDB ardb; // Art Database SQL Interface Object
   
   	vector<artEntry> results;
 
@@ -87,8 +85,8 @@ int main() {
     	res.set_content("{\"status\":\"success\"}", "text/json");
     	res.status = 200;
   	});  
-  	 
-  	cout << "Server listening on port " << port << endl;
-  	svr.listen("0.0.0.0", port);
+  	return 0; 
+  	//cout << "Server listening on port " << port << endl;
+  	//svr.listen("0.0.0.0", port);
 
 }

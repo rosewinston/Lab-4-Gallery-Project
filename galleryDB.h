@@ -12,7 +12,7 @@
 #include "colorEntry.h"
 #include "emojiEntry.h"
 #include "wordEntry.h"
-#include "AdminPortal/artEntry.h"
+#include "artEntry.h"
 
 #ifndef GALLERYDB_H
 #define GALLERYDB_H
