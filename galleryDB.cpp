@@ -3,6 +3,7 @@
 #include <mariadb/conncpp.hpp>
 #include "galleryDB.h"
 #include "colorEntry.h"
+#include "artEntry.h"
 
 
 galleryDB::galleryDB() {
@@ -102,60 +103,91 @@ vector<string> galleryDB::getAllArts() {
 }
 
 
+vector<artEntry> galleryDB::find(string search) {
+
+	vector<artEntry> list;
+    
+    // Make sure the connection is still valid
+    if (!conn) {
+   		cerr << "Invalid database connection" << endl;
+   		exit (EXIT_FAILURE);
+   	}	
+    // Create a new Statement
+	std::unique_ptr<sql::Statement> stmnt(conn->createStatement());
+    
+    // Execute query
+    sql::ResultSet *res = stmnt->executeQuery(
+			"SELECT * FROM art_pieces WHERE Name like '%"+search+"%");
+    
+    // Loop through and print results
+    while (res->next()) {
+    	artEntry entry(res->getString("ID"),res->getString("Name"));
+	    	
+	    list.push_back(entry);
+
+    }
+    return list;
+
+}
 
 
+void galleryDB::addEntry(string name){
+
+	if (!conn) {
+   		cerr << "Invalid database connection" << endl;
+   		exit (EXIT_FAILURE);
+  	}
+
+  	std::auto_ptr<sql::Statement> stmnt(conn->createStatement());
+
+  	
+  	stmnt->executeQuery("INSERT INTO art_pieces(Name) VALUES ('"+name+"')");
+}
+
+artEntry galleryDB::fetchEntry(string id){
+
+	artEntry entry;	
+	
+	if (!conn) {
+   		cerr << "Invalid database connection" << endl;
+   		exit (EXIT_FAILURE);
+  	}
+
+  	std::auto_ptr<sql::Statement> stmnt(conn->createStatement());
+
+  	
+    sql::ResultSet *res = stmnt->executeQuery("SELECT * FROM contacts WHERE ID = '"+id+"'");
+    
+    // Get first entry
+    if (res->next()) {
+    	entry = artEntry(res->getString("ID"),res->getString("Name"));
+    }
+    return entry;
+}
+
+void galleryDB::editEntry(string idnum,string name){
+	if (!conn) {
+   		cerr << "Invalid database connection" << endl;
+   		exit (EXIT_FAILURE);
+  	}
+
+  	std::auto_ptr<sql::Statement> stmnt(conn->createStatement());
+  	
+  	stmnt->executeQuery("UPDATE art_pieces SET Name = '"+name+"' WHERE ID='"+idnum+"'");
+  	
+}
 
 
+void galleryDB::deleteEntry(string idnum){
+  // Establish Connection
+  std::unique_ptr<sql::Connection>  conn(driver->connect(db_url, properties));
+    
+  if (!conn) {
+   	cerr << "Invalid database connection" << endl;
+   	exit (EXIT_FAILURE);
+  }
 
-// vector<userEntry> restChatDB::find(string user, string mail) {
-// 
-// 	vector<userEntry> list;
-//     
-//     // Make sure the connection is still valid
-//     if (!conn) {
-//    		cerr << "Invalid database connection" << endl;
-//    		exit (EXIT_FAILURE);
-//    	}	
-//     // Create a new Statement
-// 	std::unique_ptr<sql::Statement> stmnt(conn->createStatement());
-//     
-//     // Execute query
-//     sql::ResultSet *res = stmnt->executeQuery(
-// 			"SELECT * FROM users WHERE username like '%"+user+"%' OR " + "email like '%"+mail+"%'");
-//     
-//     // Loop through and print results
-//     while (res->next()) {
-//     	userEntry entry(res->getString("ID"),res->getString("username"),
-// 			res->getString("email"),res->getString("password"));
-// 	    list.push_back(entry);
-//     }
-//     return list;
-// }
-// 
-// // Function to find if username and password matches with DB
-// bool restChatDB::verifyLogin(string user, string password) {
-// 
-// 	bool found = false;
-//     
-//     // Make sure the connection is still valid
-//     if (!conn) {
-//    		cerr << "Invalid database connection" << endl;
-//    		exit (EXIT_FAILURE);
-//    	}	
-//     // Create a new Statement
-// 	std::unique_ptr<sql::Statement> stmnt(conn->createStatement());
-//     
-//     // Execute query
-// 
-//     sql::ResultSet *res = stmnt->executeQuery(
-// 			"SELECT COUNT(*) AS count FROM users WHERE username = '"+user+"' AND password = '" + password+ "'");
-//     
-//     // Loop through and print results
-//     while (res->next()) {
-//     	if (res->getString("count") == "1"){
-//     		found = true;
-//     	}
-//     }
-//     
-//     return found;
-// }
+  std::auto_ptr<sql::Statement> stmt(conn->createStatement());
+
+  stmt->execute("DELETE FROM contacts WHERE ID='"+idnum+"'");
+}
