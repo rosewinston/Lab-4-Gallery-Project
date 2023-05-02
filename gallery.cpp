@@ -35,6 +35,18 @@ string getWordJSON(vector<string> &wordList){
    }
 }
 
+ string jsonResults(vector<artEntry> pbList) {
+	string res = "{\"results\":[";
+	for (int i = 0; i<pbList.size(); i++) {
+		res += pbList[i].json();
+		if (i < pbList.size()-1) {
+			res +=",";
+		}
+	}
+	res += "]}";
+	return res;
+}
+
 int main(void) {
   Server svr;
   // int nextUser=0;
@@ -143,20 +155,8 @@ int main(void) {
     res.set_content(result, "text/json");
     res.status = 200;
   });
-  
-  string jsonResults(vector<artEntry> pbList) {
-	string res = "{\"results\":[";
-	for (int i = 0; i<pbList.size(); i++) {
-		res += pbList[i].json();
-		if (i < pbList.size()-1) {
-			res +=",";
-		}
-	}
-	res += "]}";
-	return res;
-}
 	
-	vector<artEntry> results;
+vector<artEntry> results;
 
 svr.Get("/", [](const httplib::Request & /*req*/, httplib::Response &res) {
 	 res.set_header("Access-Control-Allow-Origin","*");
