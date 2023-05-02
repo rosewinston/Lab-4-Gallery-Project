@@ -11,28 +11,25 @@ RM= /bin/rm -f
 
 all: PutHTML gallery
 
-colorEntry.o: colorEntry.cpp colorEntry.h
-	$(CC) -c $(CFLAGS) colorEntry.cpp
+colorEntry.o: GalleryFiles/colorEntry.cpp GalleryFiles/colorEntry.h
+	$(CC) -c $(CFLAGS) GalleryFiles/colorEntry.cpp
 	
-emojiEntry.o: emojiEntry.cpp emojiEntry.h
-	$(CC) -c $(CFLAGS) emojiEntry.cpp
+emojiEntry.o: GalleryFiles/emojiEntry.cpp GalleryFiles/emojiEntry.h
+	$(CC) -c $(CFLAGS) GalleryFiles/emojiEntry.cpp
 	
-wordEntry.o: wordEntry.cpp wordEntry.h
+wordEntry.o: GalleryFiles/wordEntry.cpp GalleryFiles/wordEntry.h
 	$(CC) -c $(CFLAGS) wordEntry.cpp
 	
-galleryDB.o: galleryDB.cpp galleryDB.h
-	$(CC) -c $(CFLAGS) -I/usr/include/cppconn galleryDB.cpp
+galleryDB.o: GalleryFiles/galleryDB.cpp GalleryFiles/galleryDB.h
+	$(CC) -c $(CFLAGS) -I/usr/include/cppconn GalleryFiles/galleryDB.cpp
 
 gallery.o: gallery.cpp httplib.h
 	$(CC) -c $(CFLAGS) gallery.cpp
 	
-artEntry.o: artEntry.cpp artEntry.h
-	$(CC) -c $(CFLAGS) artEntry.cpp
+artEntry.o: GalleryFiles/artEntry.cpp GalleryFiles/artEntry.h
+	$(CC) -c $(CFLAGS) GalleryFiles/artEntry.cpp
 
-AdminPortal.o: AdminPortal/adminPortal.cpp httplib.h
-	$(CC) -c $(CFLAGS) AdminPortal/adminPortal.cpp
-
-gallery: gallery.o galleryDB.o colorEntry.o emojiEntry.o wordEntry.o artDB.o artEntry.o AdminPortal.o
+gallery: gallery.o galleryDB.o colorEntry.o emojiEntry.o wordEntry.o artDB.o artEntry.o
 	$(CC) gallery.o galleryDB.o colorEntry.o emojiEntry.o wordEntry.o artEntry.o AdminPortal.o artDB.o -o gallery -L/usr/local/lib -lmariadbcpp
 	
 
