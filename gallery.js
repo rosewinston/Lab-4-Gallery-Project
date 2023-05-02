@@ -100,7 +100,7 @@ function siteDropdown(data) { //currently working --tam
 	var dropdown = "";
 	var countValue = 0;
 	data.forEach(function(key){
-		dropdown += "<option value='"+countValue+"'>"+key+"</option>";
+		dropdown += "<option value='"+key+"'>"+key+"</option>";
 		countValue += 1;
 	})
 // 	for (var key in data){
