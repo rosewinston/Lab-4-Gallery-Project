@@ -1,4 +1,4 @@
-#include "DatabaseFiles/artEntry.h"
+#include "artEntry.h"
 
 artEntry::artEntry() {
 }
