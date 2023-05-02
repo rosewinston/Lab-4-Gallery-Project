@@ -93,14 +93,13 @@ function setColor(color) {
 
 
 // DROPDOWN FOR ART PIECE
-// DROPDOWN FOR ART PIECE
 getAllArts();
 
 function siteDropdown(data) { //currently working --tam
 	var dropdown = "";
 	var countValue = 0;
 	data.forEach(function(key){
-		dropdown += "<option value='"+key+"'>"+key+"</option>";
+		dropdown += "<option value='"+countValue+"'>"+key+"</option>";
 		countValue += 1;
 	})
 // 	for (var key in data){
@@ -136,7 +135,8 @@ function getAllArts(){
 document.querySelectorAll('.emotion-button').forEach((element) => {
 	element.addEventListener('click', event => {
 		var colorID = event.currentTarget.id;
-		var art_piece = document.getElementById('slct').innerHTML;
+		var e = document.getElementById('slct');
+		var art_piece = e.options[e.selectedIndex].text;
 		addColor(art_piece, colorID);
 	});
 });
