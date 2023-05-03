@@ -11,22 +11,22 @@ RM= /bin/rm -f
 
 all: PutHTML gallery
 
-colorEntry.o: GalleryFiles/colorEntry.cpp GalleryFiles/colorEntry.h
+colorEntry.o: DatabaseFiles/colorEntry.cpp DatabaseFiles/colorEntry.h
 	$(CC) -c $(CFLAGS) GalleryFiles/colorEntry.cpp
 	
-emojiEntry.o: GalleryFiles/emojiEntry.cpp GalleryFiles/emojiEntry.h
+emojiEntry.o: DatabaseFiles/emojiEntry.cpp Database/emojiEntry.h
 	$(CC) -c $(CFLAGS) GalleryFiles/emojiEntry.cpp
 	
-wordEntry.o: GalleryFiles/wordEntry.cpp GalleryFiles/wordEntry.h
+wordEntry.o: DatabaseFiles/wordEntry.cpp DatabaseFiles/wordEntry.h
 	$(CC) -c $(CFLAGS) wordEntry.cpp
 	
-galleryDB.o: GalleryFiles/galleryDB.cpp GalleryFiles/galleryDB.h
+galleryDB.o: DatabaseFiles/galleryDB.cpp DatabaseFiles/galleryDB.h
 	$(CC) -c $(CFLAGS) -I/usr/include/cppconn GalleryFiles/galleryDB.cpp
 
 gallery.o: gallery.cpp httplib.h
 	$(CC) -c $(CFLAGS) gallery.cpp
 	
-artEntry.o: GalleryFiles/artEntry.cpp GalleryFiles/artEntry.h
+artEntry.o: DatabaseFiles/artEntry.cpp DatabaseFiles/artEntry.h
 	$(CC) -c $(CFLAGS) GalleryFiles/artEntry.cpp
 
 gallery: gallery.o galleryDB.o colorEntry.o emojiEntry.o wordEntry.o artDB.o artEntry.o
