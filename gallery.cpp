@@ -21,9 +21,9 @@ string getWordJSON(vector<string> &wordList){
 		return result;
 	}
 	else{
-		result = "{\"status\": \"success\", ";
+		result = "{\"status\": \"success\", \"words\":[";
 		bool first = true;
-		string words = "\"words\":[";
+		//string words = "\"words\":[";
 		
 		for (string word : wordList){
 			if (not first) result += ",";
