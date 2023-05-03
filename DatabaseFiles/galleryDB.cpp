@@ -120,7 +120,7 @@ vector<artEntry> galleryDB::find(string search) {
     
     // Loop through and print results
     while (res->next()) {
-    	artEntry entry(res->getString("ID"),res->getString("Name"));
+    	artEntry entry(res->getString("ID"),res->getString("Name"),res->getString("Link"));
 	    	
 	    list.push_back(entry);
 
