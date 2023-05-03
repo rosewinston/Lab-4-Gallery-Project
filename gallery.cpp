@@ -108,14 +108,6 @@ int main(void) {
     res.status = 200;
   });
 
-  svr.Get(R"(/retrieve/art_pieces/))", [&](const Request& req, Response& res) {
-    res.set_header("Access-Control-Allow-Origin","*");
-    //gldb.retrieveArt();
-
-    //res.set_content(result, "text/json")
-    res.status =  200;
-  });
-
   
   svr.Get(R"(/response/word/(.*))", [&](const Request& req, Response& res) {
     res.set_header("Access-Control-Allow-Origin","*");
@@ -140,9 +132,8 @@ int main(void) {
     res.status = 200;
   });
 	
-	
   
-   svr.Get("R(/admin/join/(.*)/(.*))",  [&](const Request& req, Response& res) {
+   svr.Get(R"(/admin/join/(.*)/(.*))",  [&](const Request& req, Response& res) {
     res.set_header("Access-Control-Allow-Origin","*");
     string username = req.matches[1];
     string password = req.matches[2];
@@ -158,14 +149,14 @@ int main(void) {
     res.status = 200;
   });
 	
-vector<artEntry> results;
+	vector<artEntry> results;
 
-svr.Get("/", [](const httplib::Request & /*req*/, httplib::Response &res) {
+   svr.Get("/", [](const httplib::Request & /*req*/, httplib::Response &res) {
 	 res.set_header("Access-Control-Allow-Origin","*");
 	 res.set_content("Contact API", "text/plain");
  });
 
-svr.Get(R"(/contact/find)", [&](const httplib::Request& req, httplib::Response& res) {
+   svr.Get(R"(/contact/find)", [&](const httplib::Request& req, httplib::Response& res) {
 	res.set_header("Access-Control-Allow-Origin","*");
 	results = gldb.find("");
 	string json = jsonResults(results);
@@ -173,9 +164,8 @@ svr.Get(R"(/contact/find)", [&](const httplib::Request& req, httplib::Response& 
 	res.status = 200;
 });
 
-svr.Get(R"(/contact/find/(.*))", [&](const httplib::Request& req, httplib::Response& res) {
+  svr.Get(R"(/contact/find/(.*))", [&](const httplib::Request& req, httplib::Response& res) {
 	res.set_header("Access-Control-Allow-Origin","*");
-
 	string last = req.matches[1];
 	results = gldb.find(last);
 	string json = jsonResults(results);
