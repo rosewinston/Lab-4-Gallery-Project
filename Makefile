@@ -30,7 +30,7 @@ artEntry.o: GalleryFiles/artEntry.cpp GalleryFiles/artEntry.h
 	$(CC) -c $(CFLAGS) GalleryFiles/artEntry.cpp
 
 gallery: gallery.o galleryDB.o colorEntry.o emojiEntry.o wordEntry.o artDB.o artEntry.o
-	$(CC) gallery.o galleryDB.o colorEntry.o emojiEntry.o wordEntry.o artEntry.o AdminPortal.o artDB.o -o gallery -L/usr/local/lib -lmariadbcpp
+	$(CC) gallery.o galleryDB.o colorEntry.o emojiEntry.o wordEntry.o artEntry.o artDB.o -o gallery -L/usr/local/lib -lmariadbcpp
 	
 
 
