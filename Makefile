@@ -29,8 +29,8 @@ gallery.o: gallery.cpp httplib.h
 artEntry.o: DatabaseFiles/artEntry.cpp DatabaseFiles/artEntry.h
 	$(CC) -c $(CFLAGS) GalleryFiles/artEntry.cpp
 
-gallery: gallery.o galleryDB.o colorEntry.o emojiEntry.o wordEntry.o artDB.o artEntry.o
-	$(CC) gallery.o galleryDB.o colorEntry.o emojiEntry.o wordEntry.o artEntry.o artDB.o -o gallery -L/usr/local/lib -lmariadbcpp
+gallery: gallery.o galleryDB.o colorEntry.o emojiEntry.o wordEntry.o artEntry.o
+	$(CC) gallery.o galleryDB.o colorEntry.o emojiEntry.o wordEntry.o artEntry.o -o gallery -L/usr/local/lib -lmariadbcpp
 	
 
 
