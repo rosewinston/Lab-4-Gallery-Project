@@ -8,12 +8,13 @@ using namespace std;
 class artEntry {
 public:
      artEntry();
-     artEntry(sql::SQLString ID, sql::SQLString Name);
+     artEntry(sql::SQLString ID, sql::SQLString Name, sql::SQLString Link);
      string text();
      string json();
      
      string ID;
      string Name;
+     string Link;
 
 private:
 
