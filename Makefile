@@ -37,10 +37,13 @@ gallery: gallery.o galleryDB.o colorEntry.o emojiEntry.o wordEntry.o artEntry.o
 
 PutHTML:
 	cp ColorResponse.html /var/www/html/gallery/
+	cp ColorResponse.js /var/www/html/gallery/
 	cp GalleryFeedback.html /var/www/html/gallery/
+	cp galleryFeedback.js /var/www/html/gallery/
 	cp -R css /var/www/html/gallery/
 	cp gallery.js /var/www/html/gallery/
 	cp GalleryLanding.html /var/www/html/gallery/
+	cp GalleryLanding.js /var/www/html/gallery/
 	cp -R gund_img /var/www/html/gallery/
 	cp AdminPortal/AdminPortal.html /var/www/html/gallery/
 	
