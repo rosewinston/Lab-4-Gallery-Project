@@ -14,7 +14,7 @@ all: PutHTML gallery
 colorEntry.o: DatabaseFiles/colorEntry.cpp DatabaseFiles/colorEntry.h
 	$(CC) -c $(CFLAGS) GalleryFiles/colorEntry.cpp
 	
-emojiEntry.o: DatabaseFiles/emojiEntry.cpp Database/emojiEntry.h
+emojiEntry.o: DatabaseFiles/emojiEntry.cpp DatabaseFiles/emojiEntry.h
 	$(CC) -c $(CFLAGS) GalleryFiles/emojiEntry.cpp
 	
 wordEntry.o: DatabaseFiles/wordEntry.cpp DatabaseFiles/wordEntry.h
