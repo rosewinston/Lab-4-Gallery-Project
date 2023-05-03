@@ -1,5 +1,5 @@
 //Admin Portal for Gund Gallery ArtDB
-var contactList = [];
+var artList = [];
 const baseUrl = 'http://18.222.189.198:5005';
 
 
@@ -27,8 +27,8 @@ function formatMatches(json) {
 
     var result = '<table class="table table-success table-striped""><tr><th>First</th>';
     json.forEach(function(entry, i) {
-        result += "<tr><td class='first'>" + entry['first']  + "</td>";
-        result += "<td><button type='button' class='btn btn-primary btn-sm edit' data-bs-toggle='modal' data-bs-target='#editContact' ";
+        result += "<tr><td class='first'>" + entry['first']  + "</td><td class='link'>" + entry['link'] + "</td>";
+        result += "<td><button type='button' class='btn btn-primary btn-sm edit' data-bs-toggle='modal' data-bs-target='#editName' ";
         result += "onclick=\"editName(" + i + ")\">Edit</button> ";
         result += "<button type='button' class='btn btn-primary btn-sm ' onclick=\"deleteContact("+ entry['ID'] +")\">Delete</button></td></tr>";
     });
@@ -76,7 +76,7 @@ function addArtPiece() {
     console.log("Attempting to add an entry");
     console.log("Firstname:" + $('#addname').val());
     $('#searchresults').empty();
-    fetch(baseUrl + '/art/add/' + $('#addname').val() + "/", {
+    fetch(baseUrl + '/art/add/' + $('#addname').val() + "/" + $('#addlink').val(), {
             method: 'get'
         })
         .then(response => response.json())
@@ -89,30 +89,31 @@ function addArtPiece() {
 }
 
 
-function editContact(row) {
-    console.log("start edit data: "+row+JSON.stringify(contactList[row]));
+function editArt(row) {
+    console.log("start edit data: "+row+JSON.stringify(artList[row]));
 
-    console.log("Name of record: " + contactList[row]["name"]);
-    editid = contactList[row]["ID"];
+    console.log("Name of record: " + artList[row]["name"]);
+    editid = artList[row]["ID"];
 
-	document.getElementById("editname").value = contactList[row]["name"];
+	document.getElementById("editname").value = artList[row]["name"];
+	document.getElementById("").value = artList[row]["link"];
 	
 	//Save ID in modal
-	var modal = document.querySelector("#editContact");
+	var modal = document.querySelector("#editArt");
 	modal.setAttribute("editid",editid);
 
 }
 
 
-function updateContact() {
+function updateArt() {
 
 	// Get ID in the modal
-	var modal = document.querySelector("#editContact");
+	var modal = document.querySelector("#editArt");
 	id = modal.getAttribute("editid");
 	
     console.log("Attempting to edit an entry:"+id); 
 
-    fetch(baseUrl + '/art/update/' + id + '/' + document.getElementById("editname").value, {
+    fetch(baseUrl + '/art/update/' + id + '/' + document.getElementById("editname").value + '/' + document.getElementById("editlink").value, {
                 method: 'get'
             })
         .then(alert("Record for " + document.getElementById("editname").value + " updated"))
