@@ -121,7 +121,6 @@ vector<artEntry> galleryDB::find(string search) {
     // Loop through and print results
     while (res->next()) {
     	artEntry entry(res->getString("ID"),res->getString("Name"),res->getString("Link"));
-	    	
 	    list.push_back(entry);
 
     }
@@ -155,11 +154,11 @@ artEntry galleryDB::fetchEntry(string id){
   	std::auto_ptr<sql::Statement> stmnt(conn->createStatement());
 
   	
-    sql::ResultSet *res = stmnt->executeQuery("SELECT * FROM contacts WHERE ID = '"+id+"'");
+    sql::ResultSet *res = stmnt->executeQuery("SELECT * FROM art_pieces WHERE ID = '"+id+"'");
     
     // Get first entry
     if (res->next()) {
-    	entry = artEntry(res->getString("ID"),res->getString("Name"));
+    	entry = artEntry(res->getString("ID"),res->getString("Name"), res->getString("Link"));
     }
     return entry;
 }
