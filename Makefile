@@ -21,7 +21,7 @@ wordEntry.o: DatabaseFiles/wordEntry.cpp DatabaseFiles/wordEntry.h
 	$(CC) -c $(CFLAGS) wordEntry.cpp
 	
 galleryDB.o: DatabaseFiles/galleryDB.cpp DatabaseFiles/galleryDB.h
-	$(CC) -c $(CFLAGS) -I/usr/include/cppconn GalleryFiles/galleryDB.cpp
+	$(CC) -c $(CFLAGS) -I/usr/include/cppconn DatabaseFiles/galleryDB.cpp
 
 gallery.o: gallery.cpp httplib.h
 	$(CC) -c $(CFLAGS) gallery.cpp
