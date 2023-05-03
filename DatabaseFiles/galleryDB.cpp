@@ -2,8 +2,6 @@
 #include <iostream>
 #include <mariadb/conncpp.hpp>
 #include "galleryDB.h"
-#include "colorEntry.h"
-#include "artEntry.h"
 
 
 galleryDB::galleryDB() {
