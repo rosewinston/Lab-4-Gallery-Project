@@ -43,7 +43,7 @@ PutHTML:
 	cp -R css /var/www/html/gallery/
 	cp gallery.js /var/www/html/gallery/
 	cp GalleryLanding.html /var/www/html/gallery/
-	cp GalleryLanding.js /var/www/html/gallery/
+	cp LandingPage.js /var/www/html/gallery/
 	cp -R gund_img /var/www/html/gallery/
 	cp AdminPortal/AdminPortal.html /var/www/html/gallery/
 	
