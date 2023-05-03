@@ -17,7 +17,7 @@
 #ifndef GALLERYDB_H
 #define GALLERYDB_H
 
-#define DB_URL "jdbc:mariadb://18.222.189.198:3306/gallery"
+#define DB_URL "jdbc:mariadb://localhost:3306/gallery"
 #define USER "lab4team"
 #define PASS "iloveskon"
 
