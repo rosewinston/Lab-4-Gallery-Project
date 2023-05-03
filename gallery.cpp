@@ -72,21 +72,23 @@ int main(void) {
   svr.Get(R"(/response/getAllArts)", [&](const Request& req, Response& res){
   	res.set_header("Access-Control-Allow-Origin","*");
   	vector<string> allArts = gldb.getAllArts();
+  	
+  	cout << "ALL arts size: " << allArts.size();
+  	
   	string result;
   	if (allArts.size() == 0){
   		result = "{\"status\": \"failed\"}";
   	}
+  	
   	else {
-  		result = "{\"status\": \"success\", ";
-  		string arts = "\"all_arts\":[";
+  		result = "{\"status\": \"success\", \"arts\":[";
   		bool first = true;
-  		for (auto &art : allArts) {
+  		for (auto art : allArts) {
   			if (not first) result += ",";
-			result += art;
+			result += "\"" + art + "\"";
 			first = false;
   		}
-  		arts += "]}";
-  		result += arts;
+  		result += "]}";
   	}
   	
   	res.set_content(result, "text/json");

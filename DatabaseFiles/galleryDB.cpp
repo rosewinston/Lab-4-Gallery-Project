@@ -96,6 +96,7 @@ vector<string> galleryDB::getAllArts() {
     // Loop through and print results
     while (res->next()) {
     	string art;
+    	art = res->getString("Name");
 	    list.push_back(art);
     }
     
