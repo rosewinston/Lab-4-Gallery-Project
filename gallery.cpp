@@ -26,6 +26,7 @@ string getWordJSON(vector<string> &wordList){
 		//string words = "\"words\":[";
 		
 		for (string word : wordList){
+			cout<<word<<endl; 
 			if (not first) result += ",";
 			result += "\"" + word + "\"";
 			first = false;
