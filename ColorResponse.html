@@ -5,7 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
         <meta name="description" content="" />
         <meta name="author" content="" />
-        <title>Color Response Page</title>
+        <title>Art Piece Feedback</title>
         <!-- Favicon-->
         <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
         <!-- Font Awesome icons (free version)-->
@@ -13,51 +13,62 @@
         <!-- Font Mfizz-->
         <link href="font-mfizz-2.4.1/font-mfizz.css" rel="stylesheet" />:
         <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="css/styles.css" rel="stylesheet" />
-        <link href="css/ColorResponse.css"type="text/css" rel="stylesheet" />
+        <link href="ColorResponse2.css"type="text/css" rel="stylesheet" />
     </head>
     <body>
-        <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
-                <div class="select">
-                    <select name="slct" id="slct">
-                        <option>Select an Art Piece</option>
-                        <option value="1">Operating System</option>
-                        <option value="2">Computer Networks</option>
-                        <option value="3">Data Structure</option>
-                        <option value="4">Algorithm</option>
-                        <option value="5">C programming</option>
-                        <option value="6">JAVA</option>
-                    </select>
-                </div>
-                <a class="navbar-brand">Color Response Page</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
-                        <li class="nav-item"><a class="nav-link active" href="ColorResponse.html"><i class="fa-solid fa-arrow-left fa-xl fa-border"></i></a></li>
-                        <li class="nav-item"><a class="nav-link active" href="GalleryFeedback.html"><i class="fa-solid fa-arrow-right fa-xl fa-border"></i></a></li>
-                    </ul>
-                </div>
-            </div>
-          </nav>
-        <!-- Page content-->
-        <div class="h-100 container-fluid">
-            <div class="text-center mt-5">
-                <h1>Pick an Emotion to Respond to the Piece</h1>
-            </div>
-            <div class="container" id="emotion-buttons">
-                <div class="btn-group row align-items-center gap-2">
-                    <button class="emotion-button" type="button" data-toggle="tooltip" data-placement="top" title="Anger" id="anger">&#128544;</button>
-                    <button class="emotion-button" type="button" data-toggle="tooltip" data-placement="top" title="Joy" id="joy">&#128546;</button>
-                </div>
-                <div class="btn-group row align-items-center gap-2">
-                    <button class="emotion-button" type="button" data-toggle="tooltip" data-placement="top" title="Sadness" id="sadness">&#128522;</button>
-                    <button class="emotion-button" type="button" data-toggle="tooltip" data-placement="top" title="Confusion" id="confusion">&#128533;</button>
-                </div>
+        <div class="banner-area">
+            <div class="banner-content">
+                <h1>Gund Gallery's Exhibition</h1>
+                <p>Some signature art pieces in the exhibition</p>
             </div>
         </div>
-        <!-- Bootstrap core JS-->
+        
+        <!-- main area  -->
+        <div class="carousel-container">
+            <div class="slider-wrapper">
+                <div class="slider">
+                    <img id="slide-1" src="gund_img/gund1.jpeg" alt="img" draggable="false">
+                    <img id="slide-2" src="gund_img/gund2.jpeg" alt="img" draggable="false">
+                    <img id="slide-3" src="gund_img/gund3.jpeg" alt="img" draggable="false">
+            </div>
+            </div>
+            <div class="slider-nav">
+                <a href="#slider-1"></a>
+                <a href="#slider-2"></a>
+                <a href="#slider-3"></a>
+            </div>
+        </div>
+        
+        <div class="selector-container">
+            <div class="select">
+                <select name="slct" id="slct">
+                    <option class = "select-text">Select an Art Piece</option>
+                    <option value="1">Operating System</option>
+                    <option value="2">Computer Networks</option>
+                    <option value="3">Data Structure</option>
+                    <option value="4">Algorithm</option>
+                    <option value="5">C programming</option>
+                    <option value="6">JAVA</option>
+                </select>
+        </div>
+
+        <div class="h-100 container-fluid">
+            <p>Choose An Emoji That Corresponds To Your Feelings About The Art Piece</p>
+            <div class="container" id="emotion-buttons">
+                <button class="emotion-button" type="button" data-toggle="tooltip" data-placement="top" title="Anger" id="anger">&#128544;</button>
+                <button class="emotion-button" type="button" data-toggle="tooltip" data-placement="top" title="Joy" id="joy">&#128522;</button>
+                <button class="emotion-button" type="button" data-toggle="tooltip" data-placement="top" title="Sadness" id="sadness">&#128546;</button>
+                <button class="emotion-button" type="button" data-toggle="tooltip" data-placement="top" title="Confusion" id="confusion">&#128533;</button>
+            </div>
+        </div>
+        
+        <a href="GalleryLanding.html" class="previous">Previous</a>
+        <a href="GalleryFeedback.html" class="next">Next</a> 
+        
+
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
         <!-- Core theme JS-->
-        <script src="colorResponse.js"></script>
+        <script src="ColorResponse2.js"></script>
+        </div>
     </body>
 </html>
