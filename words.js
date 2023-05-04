@@ -3,6 +3,7 @@ var baseUrl = 'http://18.222.189.198:5005';
 window.onload = function(argument) {
 	
 	var wordsRetrieved = fetchWords(); 
+	console.log(wordsRetrieved);
 	//var moby = "anger a fear sadness disgust enjoyment happiness love relief contentment amusement joy pride excitement peace satisfaction lonely heartbroken gloomy disappointed hopeless grieved unhappy lost troubled resigned miserable worried doubtful nervous anxious terrified panicked horrified desperate confused stressed annoyed frustrated peeved contrary bitter infuriated irritated mad cheated vengeful insulted dislike revulsion loathing disapproving offended horrified uncomfortable nauseated disturbed withdrawn aversion";
 	var words = [];
 	var words_attr = [];
