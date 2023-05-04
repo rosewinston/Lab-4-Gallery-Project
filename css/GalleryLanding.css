@@ -201,3 +201,17 @@ img {
     from {transform: scale(0)} 
     to {transform: scale(1)}
   }
+
+@media only screen and (max-width: 768px) {
+.wrapper {
+width: 80%;
+height: auto;
+}
+}
+
+@media only screen and (max-width: 768px) {
+.background-image {
+background-position: center center;
+background-size: cover;
+}
+}

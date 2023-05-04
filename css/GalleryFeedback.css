@@ -164,3 +164,17 @@ a {
     border-radius: 10px;
     opacity: 75%;
   }
+
+/* Large devices (desktops) */
+  @media only screen and (min-width: 992px) {
+  
+    .content-section h1 {
+      font-size: 50px;
+    }
+  
+    .word-box {
+      width: 50vh;
+      font-size: 25px;
+    }
+  
+  }

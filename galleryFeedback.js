@@ -14,7 +14,7 @@ document.getElementById('submit-btn').addEventListener("click", getWord);
 
 function getWord() {
    word = document.getElementById('word-response').value;
-   fetch(baseUrl + '/response/'+word, {
+   fetch(baseUrl + '/response/word/'+word, {
     method: 'get'
    })
    .then(response => response.json())
