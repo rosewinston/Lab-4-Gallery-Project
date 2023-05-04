@@ -1,5 +1,5 @@
 var baseUrl = 'http://18.222.189.198:5005';
-var wordsRetreieved = ""; 
+var wordsRetrieved = ""; 
 
 window.onload = function(argument) {
 	
