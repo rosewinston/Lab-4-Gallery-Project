@@ -82,6 +82,7 @@ window.onload = function(argument) {
 			words_attr.push(new Word(key));
 		}
 		console.log(words_attr.length);
+		console.log(words);
 
 		function animation() {
 			for (var i = 0; i < words_attr.length; i++) {
