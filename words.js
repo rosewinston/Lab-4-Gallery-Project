@@ -1,5 +1,5 @@
 var baseUrl = 'http://18.222.189.198:5005';
-var wordsRetrieved = ""; 
+var wordsRetrieved = "";
 
 window.onload = function(argument) {
 	
@@ -9,7 +9,7 @@ window.onload = function(argument) {
 	//var moby = "anger a fear sadness disgust enjoyment happiness love relief contentment amusement joy pride excitement peace satisfaction lonely heartbroken gloomy disappointed hopeless grieved unhappy lost troubled resigned miserable worried doubtful nervous anxious terrified panicked horrified desperate confused stressed annoyed frustrated peeved contrary bitter infuriated irritated mad cheated vengeful insulted dislike revulsion loathing disapproving offended horrified uncomfortable nauseated disturbed withdrawn aversion";
 	var words = [];
 	var words_attr = [];
-	string_handle(wordsRetrieved);
+	//string_handle(wordsRetrieved);
 	
 	
 	function fetchWords() {
@@ -39,10 +39,11 @@ window.onload = function(argument) {
 				}else{
 					formattedString+=" " + word; 
 				}
-				words.push(word);
+				//words.push(word);
     			});
 			console.log(formattedString); 
 			wordsRetrieved = formattedString; 
+			string_handle(wordsRetrieved)
 		}else{
 			alert("Error: word cloud retrieve failed, possibly no words"); 
 		}
