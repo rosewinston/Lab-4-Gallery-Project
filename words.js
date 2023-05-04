@@ -123,8 +123,8 @@ window.onload = function(argument) {
 			words[word_array[i]] = occurance;
       console.log(occurance);
 		}
+		console.log(words);
 		return words;
-		console.log(words); 
 	}
 
 }
