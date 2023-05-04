@@ -1,9 +1,8 @@
-var baseUrl = 'http://18.222.189.198:5005';
-var wordsRetrieved = "";
-var words = [];
-var words_attr = [];
-
 window.onload = function(argument) {
+	var baseUrl = 'http://18.222.189.198:5005';
+	var wordsRetrieved = "";
+	var words = [];
+	var words_attr = [];
 	
 
 	fetchWords(); 
