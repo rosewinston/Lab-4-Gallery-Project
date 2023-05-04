@@ -124,6 +124,7 @@ window.onload = function(argument) {
       console.log(occurance);
 		}
 		return words;
+		console.log(words); 
 	}
 
 }
