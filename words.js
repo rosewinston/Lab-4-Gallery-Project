@@ -107,7 +107,7 @@ window.onload = function(argument) {
 	function string_handle(str) {
     var lamda = 1;
 		var word_array = str.split(" ");
-		var word_array = str;
+		//var word_array = str;
     // Give each word a random occurance counrt
 		for (var i = 0; i < str.length; i++) {
       var u = Math.random();
