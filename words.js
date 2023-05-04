@@ -21,6 +21,8 @@ window.onload = function(argument) {
    		.catch(error => {
    	 	{alert("Error: Something went wrong:" + error); }
   	 	})
+		
+		return data; 
    	}
 	
    	function formatWords(data){
