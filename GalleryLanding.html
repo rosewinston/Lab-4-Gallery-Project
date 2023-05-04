@@ -28,22 +28,22 @@
             <div id ="admin" class = "wrapper animate">
               <div class = "form-box login">
                 <h2>Log in</h2>
-                <form action="#">
+               <!-- <form action="#"> -->
                 <div class = "input-box">
                   <span class = "icon"></span>
-                  <input type="text" name="username" required>
+                  <input type="text" name="username" id="uname" required>
                   <label for="uname"><b>Username</b></label>
                   </div>
                 <div class = "input-box">
                   <span class = "icon"></span>
-                  <input type="password" name="password" required>
+                  <input type="password" name="password" id="pword" required>
                   <label for="psw"><b>Password</b></label>
                   </div>
-                <button type="submit" class="btn">Log in</button>
+                <button type class="btn" id="admin-login">Log in</button>
                 <div class="login-goback">
                   <p>I don't want to log in. <a href="#" class = "goback" onclick="document.getElementById('admin').style.display='none'">Go back</a></p>
                   </div>
-                </form>
+                <!-- </form> -->
                 </div> 
               </div>
         </div>
@@ -55,6 +55,6 @@
                 <a href="ColorResponse.html">Tell us your experience!</a>
             </div>
         </div>
-        <script src="gallery.js"></script>
+        <script src="LandingPage.js"></script>
     </body>
 </html>

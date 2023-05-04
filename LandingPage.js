@@ -1,4 +1,4 @@
-var baseUrl = 'http://18.222.189.198:5005';
+var baseUrl = 'http://44.202.89.194:5005/';
 var state="off";
 var myname="";
 var art_piece="";
@@ -22,16 +22,17 @@ window.onclick = function(event) {
     }
 }
 
-document.getElementById('admin-join').addEventListener("click", adminLogin);
+document.getElementById('admin-login').addEventListener("click", adminLogin);
 
-function completeLogin(data) {
+function completeLogin(results) {
     var status = results['status'];
     if (status != "success") {
         alert("Incorrect Username or Password");
         return;
     }
     else {
-        window.location.href = "AdminPortal/AdminPortal.html";
+		console.log("Admin Portal time!");
+        window.location.replace("AdminPortal.html");
     }
 }
 
