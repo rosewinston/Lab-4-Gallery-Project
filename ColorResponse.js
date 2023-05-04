@@ -6,47 +6,6 @@ var inthandle2;
 var color = '#343a40';
 
 
-//Color Page js
-document.addEventListener("click", e => {
-    const isDropdownButton = e.target.matches("[data-dropdown-button]")
-    if (!isDropdownButton && e.target.closest('[data-dropdown]') != null) return
-
-    let currentDropdown
-    if (isDropdownButton) {
-        currentDropdown = e.target.closest('[data-dropdown]')
-        currentDropdown.classList.toggle('active')
-    }
-
-    document.querySelectorAll("[data-dropdown].active").forEach(dropdown => {
-        if (dropdown === currentDropdown) return
-        dropdown.classList.remove('active')
-    })
-})
-
-document.addEventListener("DOMContentLoaded", function() {
-    setColor(color);
-  });
-
-document.getElementById('anger').addEventListener("click", (e) => {
-    setColor('red');
-})
-
-document.getElementById('sadness').addEventListener("click", (e) => {
-    setColor('blue');
-})
-
-document.getElementById('joy').addEventListener("click", (e) => {
-    setColor('green');
-})
-
-document.getElementById('confusion').addEventListener("click", (e) => {
-    setColor('cyan');
-})
-
-
-function setColor(color) {
-    document.getElementById('navbar').style.backgroundColor = color;}
-
 
 // DROPDOWN FOR ART PIECE
 getAllArts();
