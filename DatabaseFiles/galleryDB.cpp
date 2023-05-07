@@ -189,3 +189,32 @@ void galleryDB::deleteEntry(string idnum){
 
   stmt->execute("DELETE FROM contacts WHERE ID='"+idnum+"'");
 }
+
+
+
+// function to summarize results of emotion responses for each art piece
+void galleryDB::summaryEmotion(vector<string> &artVec, vector<string> &emotionVec, vector<string> &countVec) {	
+	if (!conn) {
+		cerr << "Invalid database connection" << endl;
+		exit(EXIT_FAILURE);
+	}
+	std::unique_ptr<sql::Statement> stmnt(conn->createStatement());
+	
+  	sql::ResultSet *res = stmnt->executeQuery(
+			"SELECT art_piece, color, COUNT(color) as count_emotion FROM color_response GROUP BY art_piece, color"
+	);
+    
+    // Loop through and print results
+    while (res->next()) {
+    	string art;
+    	art = res->getString("art_piece");
+    	artVec.push_back(art);
+    	string color;
+    	color = res->getString("color");
+    	emotionVec.push_back(color);
+    	string countStr;
+    	countStr = res->getString("count_emotion");
+    	countVec.push_back(countStr);
+    	//cout << art << " " << color << " " << countInt << endl;
+    }
+}

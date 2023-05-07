@@ -6,7 +6,7 @@
 /* uncomment for applications that use vectors */
 #include <vector>
 #include <map>
-
+#include <utility>      // std::pair, std::make_pair
 #include <mariadb/conncpp.hpp>
 
 #include "colorEntry.h"
@@ -48,6 +48,9 @@ public:
     void editEntry(string idnum,string name);
     //delete art piece in DB
     void deleteEntry(string idnum);
+    
+    // function to summarize results of emotion responses for each art piece
+    void summaryEmotion(vector<string> &artVec, vector<string> &emotionVec, vector<string> &countVec);
    
     
 private:
