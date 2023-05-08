@@ -111,8 +111,10 @@ body{
 
 #slct {
     font-size: 20px;
-    border:#bc6c25;
-    background-color: transparent;
+    border-color:#bc6c25;
+    background-color: #fff;
+    border-radius: 0.5em;
+    padding: 5px 10px;
 }
 
 /* Button to choose an emoji to react to */
@@ -225,7 +227,7 @@ body{
 
 #popup .popup-content .next-page{
     text-decoration: none;
-    font-size: 22px;
+    font-size: 20px;
     color: #fff;
     display: inline-block;
     background-color: #bc6c25;
