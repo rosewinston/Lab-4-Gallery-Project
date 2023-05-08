@@ -76,7 +76,6 @@ int main(void) {
   Server svr;
   // Object of RestchatDB
   galleryDB gldb;
-  gldb.addEntryWord("omgitsawordwow");
   vector<artEntry> results;
   /* "/" just returnsAPI name */
   svr.Get("/", [](const Request & /*req*/, Response &res) {
