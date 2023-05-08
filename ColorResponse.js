@@ -59,8 +59,7 @@ function getAllArts(){
 // apply the event listener to all images
 document.querySelectorAll('.link').forEach(element => {
 	element.addEventListener('click', event => {
-		var emojiGrid = document.getElementsByClassName('slider');
-		event.currentTarget.id;
+		var emoID = event.currentTarget.id;
 		var e = document.getElementById('slct');
 		currentArt = e.options[e.selectedIndex].text;
 		console.log(currentArt);
@@ -86,6 +85,9 @@ function addColor(currentArt, colorID) {
         {alert("Error: Something went wrong:"+error);}
     })
 }
+
+
+// Make Slider change accordingly
 
 var dropdownBar = document.getElementsByClassName("slider")[0];
 
