@@ -32,7 +32,7 @@ window.onload = function(argument) {
 			console.log("Current Date: " + currentDate); 
 			
 			
-			timestamp = "2023-05-05";
+			timestamp = currentDate;
    			fetch(baseUrl + '/retrieve/words/'+timestamp, {
    			method: 'get'
    			})
