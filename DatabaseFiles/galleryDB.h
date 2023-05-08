@@ -25,17 +25,14 @@ using namespace std;
 
 class galleryDB {
 public:
+    //default constructor to create object to allow for interaction w/ database 
     galleryDB();
-    //void addEntryEmoji(string id, string timestamp, string emoji_code);
-    //void addEntryEmotion(string id, string timestamp, string art_piece, string emotion);
+    //add user's word entry to word table in database 
     void addEntryWord(string word); 
-    //map<string, string> sumEmoji(string timestamp); //GO BACK AND NAME THIS STRING PARAMETER + EDIT MAP DATA TYPES
-    //map<string, int> sumEmotion(string timestamp, string art_piece); //GO BACK AND NAME THIS STRING PARAMETER + EDIT MAP DATA TYPES
-    vector<string> sumWord(string timestamp); //GO BACK AND NAME THIS STRING PARAMETER + EDIT MAP DATA TYPES
-    // vector<userEntry> find(string user, string mail);
-    // userEntry fetchEntry(string idnum);
+    //take all words within the database word table entered the day of the given timestamp 
+    vector<string> sumWord(string timestamp); 
+    //add user's emotion entry to emotion table in database
     void addEmotion(string art_piece, string emotion);
-    void deleteEmotion (string idnum);
     // function to get all art names
     vector<string> getAllArts();
     //find art pieces matching string
