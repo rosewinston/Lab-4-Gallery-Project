@@ -1,6 +1,6 @@
 //Admin Portal for Gund Gallery ArtDB
 var artList = [];
-const baseUrl = 'http://44.202.89.194:5005';
+const baseUrl = 'http://18.222.189.198:5005';
 const imageUrl = "https://collection.gundgallery.org/Media/Previews/"
 
 /* Set up events */
