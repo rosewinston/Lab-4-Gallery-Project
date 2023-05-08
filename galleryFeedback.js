@@ -27,6 +27,17 @@ function getWord() {
 
 function completeGetWord(results){
 	var word = results['word'];
+<<<<<<< HEAD
 	console.log("Word: "+word);	
 	alert('Response recorded!');
+=======
+	console.log("Word: "+word);
+	clearTextbox();
+	alert("Success! Word added");
+}
+
+// Clears up the textbox once the word is sent
+function clearTextbox() {
+    document.getElementById('word-response').value = "";
+>>>>>>> d30fc0f6cf1c998c0651f83d395777698caefafe
 }
