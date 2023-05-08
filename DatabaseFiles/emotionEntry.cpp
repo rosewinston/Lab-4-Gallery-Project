@@ -1,16 +1,16 @@
-#include "colorEntry.h"
+#include "emotionEntry.h"
 
-colorEntry::colorEntry() {
+emotionEntry::emotionEntry() {
 }
 
-colorEntry::colorEntry(sql::SQLString id, sql::SQLString timestamp, sql::SQLString art_piece, sql::SQLString emotion) {
+emotionEntry::emotionEntry(sql::SQLString id, sql::SQLString timestamp, sql::SQLString art_piece, sql::SQLString emotion) {
     this->id = id;
     this->timestamp = timestamp;
     this->art_piece = art_piece;
     this->emotion = emotion;
 }
 
-string colorEntry::text() {
+string emotionEntry::text() {
 	string result = id + ". ";
 	result += timestamp + " ";
 	result += art_piece + " ";
@@ -19,7 +19,7 @@ string colorEntry::text() {
 
 }
 
-string colorEntry::json() {
+string emotionEntry::json() {
 	string result = "{\"id\":\"" + id + "\",";
 	result += "\"timestamp\":\"" + timestamp + "\",";
 	result += "\"art_piece\":\"" + art_piece + "\",";
