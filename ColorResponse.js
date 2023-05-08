@@ -57,14 +57,18 @@ function getAllArts(){
 
 // ADD COLOR TO DATABASE input.addEventListener('click', ));
 // apply the event listener to all images
-document.querySelectorAll('.emotion-button').forEach((element) => {
+document.querySelectorAll('.link').forEach(element => {
 	element.addEventListener('click', event => {
-		var colorID = event.currentTarget.id;
+		var emojiGrid = document.getElementsByClassName('slider');
+		event.currentTarget.id;
 		var e = document.getElementById('slct');
 		currentArt = e.options[e.selectedIndex].text;
-		addColor(art_piece, colorID);
+		console.log(currentArt);
+		addColor(currentArt, emoID);
 	});
 });
+
+// 
 
 function completeAddColor(results){
 	var art_piece = results['art_piece'];

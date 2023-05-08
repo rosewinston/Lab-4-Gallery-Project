@@ -190,6 +190,7 @@ body{
     font-weight: 500;
 }
 
+/* 
 .dropdown-menu {
     left: 0;
     top: 0;
@@ -216,6 +217,33 @@ body{
     flex-direction:column;
     gap: 1rem;
     font-size: 3em;
+}
+ */
+ 
+#emoji-container {
+	display: flex;
+	flex-direction: column;
+	left: 0;
+    top: 0;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+#row-1 {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+#row-2 {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+}
+
+.link {
+	font-size: 6vh;
+	gap: 1rem;
 }
 
 #popup .popup-buttons{
