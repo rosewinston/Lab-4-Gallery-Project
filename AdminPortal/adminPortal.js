@@ -1,7 +1,7 @@
 //Admin Portal for Gund Gallery ArtDB
 var artList = [];
 const baseUrl = 'http://44.202.89.194:5005';
-
+const imageUrl = "https://collection.gundgallery.org/Media/Previews/"
 
 /* Set up events */
 $(document).ready(function() {
@@ -25,12 +25,12 @@ $(document).ready(function() {
 // Build output table from comma delimited list
 function formatMatches(json) {
 
-    var result = '<table class="table table-success table-striped""><tr><th>First</th>';
+    var result = '<table class="table table-success table-striped""><tr><th>Name</th><th>Link</th><th>Action</th><tr>';
     json.forEach(function(entry, i) {
-        result += "<tr><td class='first'>" + entry['first']  + "</td><td class='link'>" + entry['link'] + "</td>";
-        result += "<td><button type='button' class='btn btn-primary btn-sm edit' data-bs-toggle='modal' data-bs-target='#editName' ";
-        result += "onclick=\"editName(" + i + ")\">Edit</button> ";
-        result += "<button type='button' class='btn btn-primary btn-sm ' onclick=\"deleteContact("+ entry['ID'] +")\">Delete</button></td></tr>";
+        result += "<tr><td class='Name'>" + entry['Name'] + "</td><td class='Link'>" + entry['Link'];
+        result += "<td><button type='button' class='btn btn-primary btn-sm edit' data-bs-toggle='modal' data-bs-target='#editArt' ";
+        result += "onclick=\"editArt(" + i + ")\">Edit</button> ";
+        result += "<button type='button' class='btn btn-primary btn-sm ' onclick=\"deleteEntry("+ entry['ID'] +")\">Delete</button></td></tr>";
     });
     result += "</table>";
 
@@ -58,7 +58,7 @@ function findMatches(search) {
         .then(json => displayMatches(json))
         .catch(error => {
             {
-                alert("Find Error: Something went wrong:" + error);
+                alert("Find Error: Something went wrong: " + error);
             }
         })
 }
@@ -66,9 +66,13 @@ function findMatches(search) {
 /* Add art piece functions */
 function processAdd(results) {
     console.log("Add:", results["status"]);
-    document.getElementById("addname").value = "";
-
-    findMatches(" ");
+	if (results["status"]=="success"){
+        document.getElementById("addname").value = "";
+        document.getElementById("addlink").value = "";
+         findMatches("");
+    } else {
+        alert(results["status"]);
+    }
 
 }
 
@@ -83,7 +87,7 @@ function addArtPiece() {
         .then(json => processAdd(json))
         .catch(error => {
             {
-                alert("Add Error: Something went wrong:" + error);
+                alert("Add Error: Something went wrong: " + error);
             }
         })
 }
@@ -91,17 +95,15 @@ function addArtPiece() {
 
 function editArt(row) {
     console.log("start edit data: "+row+JSON.stringify(artList[row]));
-
-    console.log("Name of record: " + artList[row]["name"]);
+    console.log("Name of record: " + artList[row]["Name"]);
     editid = artList[row]["ID"];
-
-	document.getElementById("editname").value = artList[row]["name"];
-	document.getElementById("").value = artList[row]["link"];
+	
+	document.getElementById("editname").value = artList[row]["Name"];
+	document.getElementById("editlink").value = artList[row]["Link"];
 	
 	//Save ID in modal
 	var modal = document.querySelector("#editArt");
 	modal.setAttribute("editid",editid);
-
 }
 
 
@@ -128,7 +130,7 @@ function updateArt() {
 }
 
 
-function deleteContact(id) {
+function deleteEntry(id) {
 
     console.log("Attempting to delete an entry:" + id);
     fetch(baseUrl + '/art/delete/' + id, {
