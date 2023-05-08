@@ -47,6 +47,8 @@ function graphEmotion(result){
 	var mat = listToMatrix(counts, unique_arts.length);
 	
 	var ctx = document.getElementById('chart').getContext('2d');
+	// ctx.canvas.width = 300;
+	ctx.canvas.height = 650;
 	
 	var chart = new Chart(ctx, {
 		type: 'bar',
@@ -88,12 +90,12 @@ function graphEmotion(result){
       			}]
     		},
     		maintainAspectRatio: false,
-    		plugins: {
-            	title: {
-                	display: true,
-                	text: 'Custom Chart Title'
-            	}
-        	}
+    		// plugins: {
+//             	title: {
+//                 	display: true,
+//                 	text: 'Custom Chart Title'
+//             	}
+//         	}
 		}
 	})
 	

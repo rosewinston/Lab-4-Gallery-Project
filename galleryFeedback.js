@@ -28,4 +28,5 @@ function getWord() {
 function completeGetWord(results){
 	var word = results['word'];
 	console.log("Word: "+word);	
+	alert('Response recorded!');
 }

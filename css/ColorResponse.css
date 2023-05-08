@@ -244,6 +244,7 @@ body{
 .link {
 	font-size: 6vh;
 	gap: 1rem;
+	cursor: pointer;
 }
 
 #popup .popup-buttons{

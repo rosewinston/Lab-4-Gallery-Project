@@ -6,7 +6,8 @@ var inthandle2;
 var color = '#343a40';
 var currentArt = "";
 var gundUrl = 'https://collection.gundgallery.org/Media/images/'
-
+var artList = [];
+var artLink = [];
 
 
 // DROPDOWN FOR ART PIECE
@@ -16,7 +17,7 @@ function siteDropdown(artList, artLink) { //currently working --tam
 	var dropdown = "";
 	var countValue = 0;
 	artList.forEach(function(key){
-		dropdown += "<option value='"+countValue+"'>"+key+"</option>";
+		dropdown += "<option value='"+artLink[countValue]+"'>"+key+"</option>";
 		// imageList += "<img id='"+
 // 		<img id="slide-1" src="gund_img/gund1.jpeg" alt="img" draggable="false">
 		countValue += 1;
@@ -28,7 +29,6 @@ function siteDropdown(artList, artLink) { //currently working --tam
 		imageList += "<img id='"+key+"' src='"+gundUrl+key+"' alt='img' draggable='false'>";
 	})
 
-	console.log(imageList);
 	document.querySelector('#slct').innerHTML = dropdown;
 	document.querySelector('.slider').innerHTML = imageList;
 	return;
@@ -62,8 +62,9 @@ document.querySelectorAll('.link').forEach(element => {
 		var emoID = event.currentTarget.id;
 		var e = document.getElementById('slct');
 		currentArt = e.options[e.selectedIndex].text;
-		console.log(currentArt);
 		addColor(currentArt, emoID);
+		
+		// change current displayed art
 	});
 });
 
@@ -73,6 +74,7 @@ function completeAddColor(results){
 	var art_piece = results['art_piece'];
 	var color = results['color'];
 	console.log("Art: "+art_piece+", Color: "+color);	
+	alert("Response recorded!")
 }
 
 function addColor(currentArt, colorID) {
@@ -87,14 +89,12 @@ function addColor(currentArt, colorID) {
 }
 
 
-// Make Slider change accordingly
-
-var dropdownBar = document.getElementsByClassName("slider")[0];
-
-dropdownBar.addEventListener("change", function() {
-	
-});
-
-
-
 // CHANGE IMAGE CAROUSEL IMAGE
+var dropdownList = document.getElementById('slct');
+
+
+dropdownList.addEventListener('change', event => {
+	currentLink = dropdownList.options[dropdownList.selectedIndex].value;
+	console.log(currentLink);
+	document.querySelector('.slider').innerHTML = "<img id='"+currentLink+"' src='"+gundUrl+currentLink+"' alt='img' draggable='false'>";
+});
