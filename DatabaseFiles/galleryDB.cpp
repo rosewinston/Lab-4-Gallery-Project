@@ -45,7 +45,7 @@ void galleryDB::addEntryWord(string word){
 }
 
 
-void galleryDB::addColor(string art_piece, string color){
+void galleryDB::addEmotion(string art_piece, string emotion){
 
 	if (!conn) {
    		cerr << "Invalid database connection" << endl;
@@ -54,7 +54,7 @@ void galleryDB::addColor(string art_piece, string color){
 
   	std::auto_ptr<sql::Statement> stmnt(conn->createStatement());
 
-  	stmnt->executeQuery("INSERT INTO color_response(art_piece, color) VALUES ('"+art_piece+"','"+color+"')");
+  	stmnt->executeQuery("INSERT INTO emotion_response(art_piece, emotion) VALUES ('"+art_piece+"','"+emotion+"')");
 }
 
 
@@ -201,7 +201,7 @@ void galleryDB::summaryEmotion(vector<string> &artVec, vector<string> &emotionVe
 	std::unique_ptr<sql::Statement> stmnt(conn->createStatement());
 	
   	sql::ResultSet *res = stmnt->executeQuery(
-			"SELECT art_piece, color, COUNT(color) as count_emotion FROM color_response GROUP BY art_piece, color"
+			"SELECT art_piece, emotion, COUNT(emotion) as count_emotion FROM emotion_response GROUP BY art_piece, emotion"
 	);
     
     // Loop through and print results
@@ -209,12 +209,12 @@ void galleryDB::summaryEmotion(vector<string> &artVec, vector<string> &emotionVe
     	string art;
     	art = res->getString("art_piece");
     	artVec.push_back(art);
-    	string color;
-    	color = res->getString("color");
-    	emotionVec.push_back(color);
+    	string emotion;
+    	emotion = res->getString("emotion");
+    	emotionVec.push_back(emotion);
     	string countStr;
     	countStr = res->getString("count_emotion");
     	countVec.push_back(countStr);
-    	//cout << art << " " << color << " " << countInt << endl;
+    	//cout << art << " " << emotion << " " << countInt << endl;
     }
 }
