@@ -27,5 +27,12 @@ function getWord() {
 
 function completeGetWord(results){
 	var word = results['word'];
-	console.log("Word: "+word);	
+	console.log("Word: "+word);
+	clearTextbox();
+	alert("Success! Word added");
+}
+
+// Clears up the textbox once the word is sent
+function clearTextbox() {
+    document.getElementById('word-response').value = "";
 }
