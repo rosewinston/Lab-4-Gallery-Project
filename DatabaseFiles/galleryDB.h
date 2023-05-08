@@ -9,7 +9,7 @@
 #include <utility>      // std::pair, std::make_pair
 #include <mariadb/conncpp.hpp>
 
-#include "colorEntry.h"
+#include "emotionEntry.h"
 #include "emojiEntry.h"
 #include "wordEntry.h"
 #include "artEntry.h"
@@ -27,15 +27,15 @@ class galleryDB {
 public:
     galleryDB();
     //void addEntryEmoji(string id, string timestamp, string emoji_code);
-    //void addEntryColor(string id, string timestamp, string art_piece, string color);
+    //void addEntryEmotion(string id, string timestamp, string art_piece, string emotion);
     void addEntryWord(string word); 
     //map<string, string> sumEmoji(string timestamp); //GO BACK AND NAME THIS STRING PARAMETER + EDIT MAP DATA TYPES
-    //map<string, int> sumColor(string timestamp, string art_piece); //GO BACK AND NAME THIS STRING PARAMETER + EDIT MAP DATA TYPES
+    //map<string, int> sumEmotion(string timestamp, string art_piece); //GO BACK AND NAME THIS STRING PARAMETER + EDIT MAP DATA TYPES
     vector<string> sumWord(string timestamp); //GO BACK AND NAME THIS STRING PARAMETER + EDIT MAP DATA TYPES
     // vector<userEntry> find(string user, string mail);
     // userEntry fetchEntry(string idnum);
-    void addColor(string art_piece, string color);
-    void deleteColor(string idnum);
+    void addEmotion(string art_piece, string emotion);
+    void deleteEmotion (string idnum);
     // function to get all art names
     vector<string> getAllArts();
     //find art pieces matching string
