@@ -86,7 +86,14 @@ function graphEmotion(result){
         			},
         			type: 'linear',
       			}]
-    		}
+    		},
+    		maintainAspectRatio: false,
+    		plugins: {
+            	title: {
+                	display: true,
+                	text: 'Custom Chart Title'
+            	}
+        	}
 		}
 	})
 	

@@ -1,11 +1,22 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 
+
 body{
-/* 
-	background: #141414;
- */
 	overflow: hidden;
 }
+
+canvas {
+	width: 100%;
+	height: 70vh;
+}
+
+/* 
+.main h1{
+	font-family: Poppins;
+	text-align: center;
+	position: center;
+}
+ */
 
 .button{
     margin-top: 25px;
