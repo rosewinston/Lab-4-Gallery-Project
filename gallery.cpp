@@ -129,14 +129,14 @@ int main(void) {
     res.status = 200;
   });
   
-  svr.Get(R"(/response/addColor/(.*)/(.*))", [&](const Request& req, Response& res) {
+  svr.Get(R"(/response/addEmotion/(.*)/(.*))", [&](const Request& req, Response& res) {
     res.set_header("Access-Control-Allow-Origin","*");
     string art_piece = req.matches[1];
-    string color = req.matches[2];
+    string emotion = req.matches[2];
     string result;
     
-    gldb.addEmotion(art_piece, color);
-    result = "{\"status\":\"success\",\"art_piece\":\"" + art_piece + "\",\"color\":\"" + color + "\"}";
+    gldb.addEmotion(art_piece, emotion);
+    result = "{\"status\":\"success\",\"art_piece\":\"" + art_piece + "\",\"emotion\":\"" + emotion + "\"}";
     
     res.set_content(result, "text/json");
     res.status = 200;
