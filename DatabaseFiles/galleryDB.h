@@ -34,7 +34,7 @@ public:
     //add user's emotion entry to emotion table in database
     void addEmotion(string art_piece, string emotion);
     // function to get all art names
-    vector<string> getAllArts();
+    map<string, string> getAllArts(vector<string> &artList);
     //find art pieces matching string
     vector<artEntry> find(string search);
     //get art piece that matches with the ID given

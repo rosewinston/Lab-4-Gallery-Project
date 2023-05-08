@@ -87,9 +87,8 @@ int main(void) {
   // Get all art pieces names
   svr.Get(R"(/response/getAllArts)", [&](const Request& req, Response& res){
   	res.set_header("Access-Control-Allow-Origin","*");
-  	vector<string> allArts = gldb.getAllArts();
-  	
-  	cout << "ALL arts size: " << allArts.size();
+  	vector<string> artList;
+  	map<string, string> allArts = gldb.getAllArts(artList);
   	
   	string result;
   	if (allArts.size() == 0){
@@ -99,10 +98,21 @@ int main(void) {
   	else {
   		result = "{\"status\": \"success\", \"arts\":[";
   		bool first = true;
-  		for (auto art : allArts) {
+  		for (auto it : allArts) {
   			if (not first) result += ",";
-			result += "\"" + art + "\"";
+  			string art = it.first;
+  			string link = it.second;
+			string json += "{\""+art+"\":\""+link+"\"}";
+			result += json;
 			first = false;
+  		}
+  		result += "], \"arts\":[";
+  		
+  		first = true;
+  		for (auto art : artList){
+  			if (not first) result += ",";
+  			result += "\""+ art + "\"";
+  			first = false;
   		}
   		result += "]}";
   	}
