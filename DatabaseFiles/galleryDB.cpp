@@ -106,23 +106,21 @@ map<string, string> galleryDB::getAllArts(vector<string> &artList) {
 
 
 vector<artEntry> galleryDB::find(string search) {
-
 	vector<artEntry> list;
     
     // Make sure the connection is still valid
     if (!conn) {
-   		cerr << "Invalid database connection" << endl;
+		cerr << "Invalid database connection" << endl;
    		exit (EXIT_FAILURE);
    	}	
     // Create a new Statement
 	std::unique_ptr<sql::Statement> stmnt(conn->createStatement());
-    
     // Execute query
     sql::ResultSet *res = stmnt->executeQuery(
-			"SELECT * FROM art_pieces WHERE Name like '%"+search+"%");
+			"SELECT * FROM art_pieces WHERE Name like '%"+search+"%'");
     
     // Loop through and print results
-    while (res->next()) {
+	while (res->next()) {
     	artEntry entry(res->getString("ID"),res->getString("Name"),res->getString("Link"));
 	    list.push_back(entry);
 
@@ -142,7 +140,7 @@ void galleryDB::addEntry(string name, string link){
   	std::auto_ptr<sql::Statement> stmnt(conn->createStatement());
 
   	
-  	stmnt->executeQuery("INSERT INTO art_pieces(Name) VALUES ('"+name+"','"+link+"')");
+  	stmnt->executeQuery("INSERT INTO art_pieces(Name,Link) VALUES ('"+name+"','"+link+"')");
 }
 
 artEntry galleryDB::fetchArt(string id){
@@ -167,15 +165,15 @@ artEntry galleryDB::fetchArt(string id){
 }
 
 void galleryDB::editEntry(string idnum,string name,string link){
+	std::unique_ptr<sql::Connection>  conn(driver->connect(db_url, properties));
+	
 	if (!conn) {
    		cerr << "Invalid database connection" << endl;
    		exit (EXIT_FAILURE);
   	}
 
   	std::auto_ptr<sql::Statement> stmnt(conn->createStatement());
-  	
-  	stmnt->executeQuery("UPDATE art_pieces SET Name = '"+name+"'Link = '"+link+"', WHERE ID='"+idnum+"'");
-  	
+  	stmnt->executeQuery("UPDATE art_pieces SET Name = '"+name+"', Link ='"+link+"' WHERE ID='"+idnum+"'");
 }
 
 
@@ -192,7 +190,6 @@ void galleryDB::deleteEntry(string idnum){
 
   stmt->execute("DELETE FROM art_pieces WHERE ID='"+idnum+"'");
 }
-
 
 
 // function to summarize results of emotion responses for each art piece
