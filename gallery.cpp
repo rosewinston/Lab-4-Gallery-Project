@@ -254,7 +254,7 @@ svr.Get(R"(/response/summaryEmotion)", [&](const Request& req, Response& res){
   			}
   			artStr += "\"" + artVec[i] + "\"";
   			emoStr += "\"" + emoVec[i] + "\"";
-  			countStr += "\"" + countVec[i] + "\"";
+  			countStr += countVec[i];
   			first = false;
   		}
   		artStr += "]";

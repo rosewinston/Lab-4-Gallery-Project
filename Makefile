@@ -42,6 +42,7 @@ PutHTML:
 	cp galleryFeedback.js /var/www/html/gallery/
 	cp SummaryPage.html /var/www/html/gallery/
 	cp SummaryPage.css /var/www/html/gallery/
+	cp SummaryPage.js /var/www/html/gallery/
 	cp -R css /var/www/html/gallery/
 	cp gallery.js /var/www/html/gallery/
 	cp GalleryLanding.html /var/www/html/gallery/
