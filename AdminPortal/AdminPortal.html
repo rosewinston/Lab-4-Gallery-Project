@@ -45,14 +45,19 @@
                </div>
                <div class="modal-body p-4">
                   <form>
-                     <!-- First input -->
+                     <!-- Name input -->
                      <div class="form-outline mb-1">
                         <input type="text" id="addname" class="form-control">
                         <label class="form-label" for="addname">Art Name</label>
+						</div>
+                     <!-- Link input -->
+                     <div class="form-outline mb-1">
+                        <input type="text" id="addlink" class="form-control">
+                        <label class="form-label" for="addlink">Art Link</label>
                      </div>
                      <br>
                      <!-- Submit button -->
-                     <button type="submit" class="btn btn-primary btn-block" data-bs-dismiss="modal" onclick="addArtPiece()">Save</button>
+                     <button class="btn btn-primary btn-block" data-bs-dismiss="modal" onclick="addArtPiece()">Save</button>
                   </form>
                </div>
             </div>
@@ -63,7 +68,7 @@
          <div class="modal-dialog d-flex justify-content-center">
             <div class="modal-content w-75">
                <div class="modal-header">
-                  <h5 class="modal-title" id="EditArtPiece">Edit an entry</h5>
+                  <h5 class="modal-title" id="EditArt">Edit an entry</h5>
                   <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                </div>
                <div class="modal-body p-4">
@@ -78,6 +83,33 @@
                         <input type="text" id="editlink" class="form-control">
                         <label class="form-label" for="editname">Art Image Link</label>
                      </div>
+                     <!-- Submit button -->
+                     <button type="submit" class="btn btn-primary btn-block" data-bs-dismiss="modal" onclick="updateArt()">Save</button>
+                  </form>
+               </div>
+            </div>
+         </div>
+      </div>
+	  <div class="modal fade" id="EditArt" tabindex="-1" aria-labelledby="EditArt" aria-hidden="true">
+         <div class="modal-dialog d-flex justify-content-center">
+            <div class="modal-content w-75">
+               <div class="modal-header">
+                  <h5 class="modal-title">Edit an art piece</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+               </div>
+               <div class="modal-body p-4">
+                  <form>
+                     <!-- Name input -->
+                     <div class="form-outline mb-1">
+                        <input type="text" id="editname" class="form-control">
+                        <label class="form-label" for="editname">Art Name</label>
+                     </div>
+                     <!-- Link input -->
+                     <div class="form-outline mb-1">
+                        <input type="text" id="editlink" class="form-control">
+                        <label class="form-label" for="editlink">Art Link</label>
+                     </div>
+                     <br>
                      <!-- Submit button -->
                      <button type="submit" class="btn btn-primary btn-block" data-bs-dismiss="modal" onclick="updateArt()">Save</button>
                   </form>
