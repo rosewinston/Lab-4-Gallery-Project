@@ -79,7 +79,7 @@ vector<string> galleryDB::sumWord(string timestamp){
 }
 	
 // Get all arts function
-map<string, string> galleryDB::getAllArts(vector<string> &artList) {
+map<string, string> galleryDB::getAllArts(vector<string> &artList, vector<string> &artLink) {
 	map<string, string> list;
 	if (!conn) {
 		cerr << "Invalid database connection" << endl;
@@ -99,6 +99,7 @@ map<string, string> galleryDB::getAllArts(vector<string> &artList) {
     	link = res->getString("Link");
 	    list[art] = link;
 	    artList.push_back(art);
+	    artLink.push_back(link);
     }
     
     return list;

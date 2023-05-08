@@ -87,7 +87,8 @@ int main(void) {
   svr.Get(R"(/response/getAllArts)", [&](const Request& req, Response& res){
   	res.set_header("Access-Control-Allow-Origin","*");
   	vector<string> artList;
-  	map<string, string> allArts = gldb.getAllArts(artList);
+  	vector<string> artLink;
+  	map<string, string> allArts = gldb.getAllArts(artList, artLink);
   	
   	string result;
   	if (allArts.size() == 0){
@@ -111,6 +112,14 @@ int main(void) {
   		for (auto art : artList){
   			if (not first) result += ",";
   			result += "\""+ art + "\"";
+  			first = false;
+  		}
+  		result += "], \"links\":[";
+  		
+  		first = true;
+  		for (auto link : artLink){
+  			if (not first) result += ",";
+  			result += "\""+ link + "\"";
   			first = false;
   		}
   		result += "]}";
