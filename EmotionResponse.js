@@ -3,7 +3,7 @@ var state="off";
 var art_piece="";
 var inthandle;
 var inthandle2;
-var color = '#343a40';
+var emotion = '#343a40';
 var currentArt = "";
 var gundUrl = 'https://collection.gundgallery.org/Media/images/'
 var artList = [];
@@ -55,14 +55,13 @@ function getAllArts(){
     })
 }
 
-// ADD COLOR TO DATABASE input.addEventListener('click', ));
 // apply the event listener to all images
 document.querySelectorAll('.link').forEach(element => {
 	element.addEventListener('click', event => {
 		var emoID = event.currentTarget.id;
 		var e = document.getElementById('slct');
 		currentArt = e.options[e.selectedIndex].text;
-		addColor(currentArt, emoID);
+		addEmotion(currentArt, emoID);
 		
 		// change current displayed art
 	});
@@ -70,19 +69,19 @@ document.querySelectorAll('.link').forEach(element => {
 
 // 
 
-function completeAddColor(results){
+function completeAddEmotion(results){
 	var art_piece = results['art_piece'];
-	var color = results['color'];
-	console.log("Art: "+art_piece+", Color: "+color);	
+	var emotion = results['emotion'];
+	console.log("Art: "+art_piece+", Emotion: "+emotion);	
 	alert("Response recorded!")
 }
 
-function addColor(currentArt, colorID) {
-	fetch(baseUrl+'/response/addColor/'+currentArt+'/'+colorID, {
+function addEmotion(currentArt, colorID) {
+	fetch(baseUrl+'/response/addEmotion/'+currentArt+'/'+emotionID, {
         method: 'get'
     })
     .then (response => response.json() )
-    .then (data =>completeAddColor(data))
+    .then (data =>completeAddEmotion(data))
     .catch(error => {
         {alert("Error: Something went wrong:"+error);}
     })
