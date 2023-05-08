@@ -48,30 +48,6 @@ string getWordJSON(vector<string> &wordList){
 	return res;
 }
 
-// string jsonSummaryEmotion(map<string, map<string, int> myMap){
-// 	string result = "\"results\":[";
-// 	for (auto art : myMap) {
-// 		bool first = true;
-// 		
-// 		// Iterate over outer map
-//         string artName = art.first;
-// 		
-// 		string emotion;
-//         int count;
-// 		for (auto emo : myMap[art]){
-// 			emotion = emo.first;
-// 			count = emo.second;
-// 		}
-// 		
-//         if (not first) result += ",";
-//         result += "{\""+artName+"\":{\""+emotion+"\":"+count+"}}";
-//         first = false;
-//     }
-//     result += "]";
-//     return result;
-// }
-
-
 int main(void) {
   Server svr;
   // int nextUser=0;
@@ -90,7 +66,7 @@ int main(void) {
   /* "/" just returnsAPI name */
   svr.Get("/", [](const Request & /*req*/, Response &res) {
     res.set_header("Access-Control-Allow-Origin","*");
-    res.set_content("Chat API", "text/plain"); 
+    res.set_content("Gallery API", "text/plain"); 
   });
   
   // Get all art pieces names
@@ -176,30 +152,27 @@ int main(void) {
 	
 	vector<artEntry> results;
 
-   svr.Get("/", [](const httplib::Request & /*req*/, httplib::Response &res) {
-	 res.set_header("Access-Control-Allow-Origin","*");
-	 res.set_content("Contact API", "text/plain");
- });
-
-   svr.Get(R"(/contact/find)", [&](const httplib::Request& req, httplib::Response& res) {
+   svr.Get(R"(/art/find)", [&](const httplib::Request& req, httplib::Response& res) {
 	res.set_header("Access-Control-Allow-Origin","*");
+	cout << "art find is running";
 	results = gldb.find("");
 	string json = jsonResults(results);
 	res.set_content(json, "text/json");
 	res.status = 200;
 });
 
-  svr.Get(R"(/contact/find/(.*))", [&](const httplib::Request& req, httplib::Response& res) {
+  svr.Get(R"(/art/find/(.*))", [&](const httplib::Request& req, httplib::Response& res) {
 	res.set_header("Access-Control-Allow-Origin","*");
-	string last = req.matches[1];
-	results = gldb.find(last);
+	cout << "art find is running";
+	string name = req.matches[1];
+	results = gldb.find(name);
 	string json = jsonResults(results);
 	res.set_content(json, "text/json");
 	res.status = 200;
 });
 
 
-svr.Get(R"(/contact/add/(.*))", [&](const httplib::Request& req, httplib::Response& res) {
+svr.Get(R"(/art/add/(.*))", [&](const httplib::Request& req, httplib::Response& res) {
 	res.set_header("Access-Control-Allow-Origin","*");
 
 	string name = req.matches[1];
@@ -209,7 +182,7 @@ svr.Get(R"(/contact/add/(.*))", [&](const httplib::Request& req, httplib::Respon
 	res.status = 200;
 }); 	
 
-svr.Get(R"(/contact/update/(.*)/(.*))", [&](const httplib::Request& req, httplib::Response& res) {
+svr.Get(R"(/art/update/(.*)/(.*))", [&](const httplib::Request& req, httplib::Response& res) {
 	res.set_header("Access-Control-Allow-Origin","*");
 
 	string ID = req.matches[1];
@@ -220,7 +193,7 @@ svr.Get(R"(/contact/update/(.*)/(.*))", [&](const httplib::Request& req, httplib
 	res.status = 200;
 }); 
 
-svr.Get(R"(/contact/delete/(.*))", [&](const httplib::Request& req, httplib::Response& res) {
+svr.Get(R"(/art/delete/(.*))", [&](const httplib::Request& req, httplib::Response& res) {
 	res.set_header("Access-Control-Allow-Origin","*");
 
 	string ID = req.matches[1];
@@ -229,47 +202,6 @@ svr.Get(R"(/contact/delete/(.*))", [&](const httplib::Request& req, httplib::Res
 	res.status = 200;
 });  
  
- 
-// Summary Page for Emotions
-svr.Get(R"(/response/summaryEmotion)", [&](const Request& req, Response& res){
-  	res.set_header("Access-Control-Allow-Origin","*");
-  	vector<string> artVec;
-  	vector<string> emoVec;
-  	vector<string> countVec;
-  	
-  	gldb.summaryEmotion(artVec, emoVec, countVec);
-  	string result;
-  	
-  	if (artVec.size() > 0 && emoVec.size() > 0 && countVec.size() > 0){
-  		result = "{\"status\":\"success\", ";
-  		string artStr = "\"arts\":[";
-  		string emoStr = "\"emotions\":[";
-  		string countStr = "\"counts\":[";
-  		bool first = true;
-  		for (int i=0; i<artVec.size(); i++){
-  			if (not first) {
-  				artStr += ",";
-  				emoStr += ",";     
-  				countStr += ",";
-  			}
-  			artStr += "\"" + artVec[i] + "\"";
-  			emoStr += "\"" + emoVec[i] + "\"";
-  			countStr += "\"" + countVec[i] + "\"";
-  			first = false;
-  		}
-  		artStr += "]";
-  		emoStr += "]";
-  		countStr += "]";
-  		result += artStr + "," + emoStr + "," + countStr + "}";
-  	}
-  	else
-  		result = "{\"status\":\"failed\"}";
-  		
-  	res.set_content(result, "text/json");
-  	res.status = 200;
-  });
-
-
   
   cout << "Server listening on port " << port << endl;
   svr.listen("0.0.0.0", port);
