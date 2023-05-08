@@ -101,7 +101,7 @@ int main(void) {
   			if (not first) result += ",";
   			string art = it.first;
   			string link = it.second;
-			string json += "{\""+art+"\":\""+link+"\"}";
+			string json = "{\""+art+"\":\""+link+"\"}";
 			result += json;
 			first = false;
   		}

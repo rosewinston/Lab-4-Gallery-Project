@@ -4,6 +4,7 @@ var art_piece="";
 var inthandle;
 var inthandle2;
 var color = '#343a40';
+var currentArt = "";
 
 
 
@@ -51,7 +52,7 @@ document.querySelectorAll('.emotion-button').forEach((element) => {
 	element.addEventListener('click', event => {
 		var colorID = event.currentTarget.id;
 		var e = document.getElementById('slct');
-		var art_piece = e.options[e.selectedIndex].text;
+		currentArt = e.options[e.selectedIndex].text;
 		addColor(art_piece, colorID);
 	});
 });
@@ -62,8 +63,8 @@ function completeAddColor(results){
 	console.log("Art: "+art_piece+", Color: "+color);	
 }
 
-function addColor(art_piece, colorID) {
-	fetch(baseUrl+'/response/addColor/'+art_piece+'/'+colorID, {
+function addColor(currentArt, colorID) {
+	fetch(baseUrl+'/response/addColor/'+currentArt+'/'+colorID, {
         method: 'get'
     })
     .then (response => response.json() )
@@ -72,3 +73,6 @@ function addColor(art_piece, colorID) {
         {alert("Error: Something went wrong:"+error);}
     })
 }
+
+
+// CHANGE IMAGE CAROUSEL IMAGE
