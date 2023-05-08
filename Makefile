@@ -33,8 +33,8 @@ gallery: gallery.o galleryDB.o emotionEntry.o wordEntry.o artEntry.o
 
 
 PutHTML:
-	cp ColorResponse.html /var/www/html/gallery/
-	cp ColorResponse.js /var/www/html/gallery/
+	cp EmotionResponse.html /var/www/html/gallery/
+	cp EmotionResponse.js /var/www/html/gallery/
 	cp GalleryFeedback.html /var/www/html/gallery/
 	cp galleryFeedback.js /var/www/html/gallery/
 	cp SummaryPage.html /var/www/html/gallery/
