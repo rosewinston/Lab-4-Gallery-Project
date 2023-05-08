@@ -53,8 +53,40 @@ function graphEmotion(result){
 		data: {
 			labels: unique_arts,
 			datasets: [{
-			
+				label: unique_emotions[0],
+				data: mat[0],
+				backgroundColor: '#648fff'
+			}, {
+				label: unique_emotions[1],
+				data: mat[1],
+				backgroundColor: '#785ef0'
+			}, {
+				label: unique_emotions[2],
+				data: mat[2],
+				backgroundColor: '#dc267f'
+			}, {
+				label: unique_emotions[3],
+				data: mat[3],
+				backgroundColor: '#fe6100'
 			}]
+		},
+		options: {
+			responsive: true,
+			scales: {
+      			xAxes: [{
+        			stacked: true,
+        			gridLines: {
+          				display: false,
+        			}
+      			}],
+      			yAxes: [{
+        			stacked: true,
+        			ticks: {
+          				beginAtZero: true,
+        			},
+        			type: 'linear',
+      			}]
+    		}
 		}
 	})
 	
