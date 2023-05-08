@@ -149,7 +149,7 @@ int main(void) {
   });
 	
   
-   svr.Get(R"(/admin/join/(.*)/(.*))",  [&](const Request& req, Response& res) {
+ svr.Get(R"(/admin/join/(.*)/(.*))",  [&](const Request& req, Response& res) {
     res.set_header("Access-Control-Allow-Origin","*");
     string username = req.matches[1];
     string password = req.matches[2];
@@ -165,17 +165,15 @@ int main(void) {
     res.status = 200;
   });
 	
-
-   svr.Get(R"(/art/find)", [&](const httplib::Request& req, httplib::Response& res) {
+	svr.Get(R"(/art/find)", [&](const httplib::Request& req, httplib::Response& res) {
     	res.set_header("Access-Control-Allow-Origin","*");
-
     	results = gldb.find("");
     	string json = jsonResults(results);
-    	res.set_content(json, "text/json");
+		res.set_content(json, "text/json");
     	res.status = 200;
   	});
 
-svr.Get(R"(/art/find/(.*))", [&](const httplib::Request& req, httplib::Response& res) {
+	svr.Get(R"(/art/find/(.*))", [&](const httplib::Request& req, httplib::Response& res) {
     	res.set_header("Access-Control-Allow-Origin","*");
 
     	string name = req.matches[1];
@@ -191,6 +189,7 @@ svr.Get(R"(/art/add/(.*)/(.*))", [&](const httplib::Request& req, httplib::Respo
 
 	string name = req.matches[1];
 	string link = req.matches[2];
+	cout << "adding link" << endl;
 	gldb.addEntry(name,link);
 
 	res.set_content("{\"status\":\"success\"}", "text/json");
@@ -204,7 +203,6 @@ svr.Get(R"(/art/update/(.*)/(.*)/(.*))", [&](const httplib::Request& req, httpli
 	string name = req.matches[2];
 	string link = req.matches[3];
 	gldb.editEntry(ID,name,link);
-
 	res.set_content("{\"status\":\"success\"}", "text/json");
 	res.status = 200;
 }); 
