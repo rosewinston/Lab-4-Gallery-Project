@@ -5,7 +5,7 @@
 #include <algorithm>
 #include "httplib.h"
 #include "DatabaseFiles/galleryDB.h"
-#include "DatabaseFiles/colorEntry.h"
+#include "DatabaseFiles/emotionEntry.h"
 #include <string>
 
 using namespace httplib;
@@ -117,7 +117,7 @@ int main(void) {
     string color = req.matches[2];
     string result;
     
-    gldb.addColor(art_piece, color);
+    gldb.addEmotion(art_piece, color);
     result = "{\"status\":\"success\",\"art_piece\":\"" + art_piece + "\",\"color\":\"" + color + "\"}";
     
     res.set_content(result, "text/json");
