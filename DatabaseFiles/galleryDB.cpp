@@ -129,7 +129,7 @@ vector<artEntry> galleryDB::find(string search) {
 }
 
 
-void galleryDB::addEntry(string name){
+void galleryDB::addEntry(string name, string link){
 
 	if (!conn) {
    		cerr << "Invalid database connection" << endl;
@@ -139,10 +139,10 @@ void galleryDB::addEntry(string name){
   	std::auto_ptr<sql::Statement> stmnt(conn->createStatement());
 
   	
-  	stmnt->executeQuery("INSERT INTO art_pieces(Name) VALUES ('"+name+"')");
+  	stmnt->executeQuery("INSERT INTO art_pieces(Name) VALUES ('"+name+"','"+link+"')");
 }
 
-artEntry galleryDB::fetchEntry(string id){
+artEntry galleryDB::fetchArt(string id){
 
 	artEntry entry;	
 	
@@ -163,7 +163,7 @@ artEntry galleryDB::fetchEntry(string id){
     return entry;
 }
 
-void galleryDB::editEntry(string idnum,string name){
+void galleryDB::editEntry(string idnum,string name,string link){
 	if (!conn) {
    		cerr << "Invalid database connection" << endl;
    		exit (EXIT_FAILURE);
@@ -171,7 +171,7 @@ void galleryDB::editEntry(string idnum,string name){
 
   	std::auto_ptr<sql::Statement> stmnt(conn->createStatement());
   	
-  	stmnt->executeQuery("UPDATE art_pieces SET Name = '"+name+"' WHERE ID='"+idnum+"'");
+  	stmnt->executeQuery("UPDATE art_pieces SET Name = '"+name+"'Link = '"+link+"', WHERE ID='"+idnum+"'");
   	
 }
 
@@ -187,7 +187,7 @@ void galleryDB::deleteEntry(string idnum){
 
   std::auto_ptr<sql::Statement> stmt(conn->createStatement());
 
-  stmt->execute("DELETE FROM contacts WHERE ID='"+idnum+"'");
+  stmt->execute("DELETE FROM art_pieces WHERE ID='"+idnum+"'");
 }
 
 

@@ -74,7 +74,7 @@ function processAdd(results) {
 
 function addArtPiece() {
     console.log("Attempting to add an entry");
-    console.log("Firstname:" + $('#addname').val());
+    console.log("Artname:" + $('#addname').val());
     $('#searchresults').empty();
     fetch(baseUrl + '/art/add/' + $('#addname').val() + "/" + $('#addlink').val(), {
             method: 'get'

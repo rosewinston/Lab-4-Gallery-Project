@@ -74,23 +74,14 @@ string getWordJSON(vector<string> &wordList){
 
 int main(void) {
   Server svr;
-  // int nextUser=0;
-  // map<string,vector<string>> messageMap;
-  // vector<string> currentUser;
-  // map<string, vector<string>> userMap; //store the register information
-  // vector<string> typingUser;
-  // map<string, vector<string>> userToTokenMap;
-  // map<string, string> tokenToUserMap;
-  
   // Object of RestchatDB
   galleryDB gldb;
   gldb.addEntryWord("omgitsawordwow");
-  
-  	
+  vector<artEntry> results;
   /* "/" just returnsAPI name */
   svr.Get("/", [](const Request & /*req*/, Response &res) {
     res.set_header("Access-Control-Allow-Origin","*");
-    res.set_content("Chat API", "text/plain"); 
+    res.set_content("Gallery API", "text/plain"); 
   });
   
   // Get all art pieces names
@@ -174,44 +165,45 @@ int main(void) {
     res.status = 200;
   });
 	
-	vector<artEntry> results;
 
    svr.Get(R"(/art/find)", [&](const httplib::Request& req, httplib::Response& res) {
-	res.set_header("Access-Control-Allow-Origin","*");
-	cout << "art find is running";
-	results = gldb.find("");
-	string json = jsonResults(results);
-	res.set_content(json, "text/json");
-	res.status = 200;
-});
+    	res.set_header("Access-Control-Allow-Origin","*");
 
-  svr.Get(R"(/art/find/(.*))", [&](const httplib::Request& req, httplib::Response& res) {
+    	results = gldb.find("");
+    	string json = jsonResults(results);
+    	res.set_content(json, "text/json");
+    	res.status = 200;
+  	});
+
+svr.Get(R"(/art/find/(.*))", [&](const httplib::Request& req, httplib::Response& res) {
+    	res.set_header("Access-Control-Allow-Origin","*");
+
+    	string name = req.matches[1];
+    	results = gldb.find(name);
+    	string json = jsonResults(results);
+    	res.set_content(json, "text/json");
+    	res.status = 200;
+  	});
+
+
+svr.Get(R"(/art/add/(.*)/(.*))", [&](const httplib::Request& req, httplib::Response& res) {
 	res.set_header("Access-Control-Allow-Origin","*");
-	cout << "art find is running";
+
 	string name = req.matches[1];
-	results = gldb.find(name);
-	string json = jsonResults(results);
-	res.set_content(json, "text/json");
-	res.status = 200;
-});
-
-
-svr.Get(R"(/art/add/(.*))", [&](const httplib::Request& req, httplib::Response& res) {
-	res.set_header("Access-Control-Allow-Origin","*");
-
-	string name = req.matches[1];
-	gldb.addEntry(name);
+	string link = req.matches[2];
+	gldb.addEntry(name,link);
 
 	res.set_content("{\"status\":\"success\"}", "text/json");
 	res.status = 200;
 }); 	
 
-svr.Get(R"(/art/update/(.*)/(.*))", [&](const httplib::Request& req, httplib::Response& res) {
+svr.Get(R"(/art/update/(.*)/(.*)/(.*))", [&](const httplib::Request& req, httplib::Response& res) {
 	res.set_header("Access-Control-Allow-Origin","*");
 
 	string ID = req.matches[1];
 	string name = req.matches[2];
-	gldb.editEntry(ID,name);
+	string link = req.matches[3];
+	gldb.editEntry(ID,name,link);
 
 	res.set_content("{\"status\":\"success\"}", "text/json");
 	res.status = 200;

@@ -41,11 +41,11 @@ public:
     //find art pieces matching string
     vector<artEntry> find(string search);
     //get art piece that matches with the ID given
-    artEntry fetchEntry(string id);
+    artEntry fetchArt(string id);
     // add art piece to DB
-    void addEntry(string name);
+    void addEntry(string name, string link);
     //edit art piece name in DB
-    void editEntry(string idnum,string name);
+    void editEntry(string idnum,string name,string link);
     //delete art piece in DB
     void deleteEntry(string idnum);
     
