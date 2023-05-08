@@ -47,7 +47,7 @@ public:
     void deleteEntry(string idnum);
     
     // function to summarize results of emotion responses for each art piece
-    void summaryEmotion(vector<string> &artVec, vector<string> &emotionVec, vector<string> &countVec);
+    void summaryEmotion(vector<string> &emotionVec, vector<string> &artVec, vector<string> &countVec);
    
     
 private:

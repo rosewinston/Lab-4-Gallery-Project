@@ -193,7 +193,7 @@ void galleryDB::deleteEntry(string idnum){
 
 
 // function to summarize results of emotion responses for each art piece
-void galleryDB::summaryEmotion(vector<string> &artVec, vector<string> &emotionVec, vector<string> &countVec) {	
+void galleryDB::summaryEmotion(vector<string> &emotionVec, vector<string> &artVec, vector<string> &countVec) {	
 	if (!conn) {
 		cerr << "Invalid database connection" << endl;
 		exit(EXIT_FAILURE);
@@ -201,17 +201,17 @@ void galleryDB::summaryEmotion(vector<string> &artVec, vector<string> &emotionVe
 	std::unique_ptr<sql::Statement> stmnt(conn->createStatement());
 	
   	sql::ResultSet *res = stmnt->executeQuery(
-			"SELECT art_piece, emotion, COUNT(emotion) as count_emotion FROM emotion_response GROUP BY art_piece, emotion"
+			"SELECT emotion, art_piece, COUNT(emotion) as count_emotion FROM emotion_response GROUP BY emotion, art_piece"
 	);
     
     // Loop through and print results
     while (res->next()) {
+    	string emotion;
+	    emotion = res->getString("emotion");
+        emotionVec.push_back(emotion);
     	string art;
     	art = res->getString("art_piece");
     	artVec.push_back(art);
-    	string emotion;
-    	emotion = res->getString("emotion");
-    	emotionVec.push_back(emotion);
     	string countStr;
     	countStr = res->getString("count_emotion");
     	countVec.push_back(countStr);

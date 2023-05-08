@@ -225,13 +225,13 @@ svr.Get(R"(/response/summaryEmotion)", [&](const Request& req, Response& res){
   	vector<string> emoVec;
   	vector<string> countVec;
   	
-  	gldb.summaryEmotion(artVec, emoVec, countVec);
+  	gldb.summaryEmotion(emoVec, artVec, countVec);
   	string result;
   	
   	if (artVec.size() > 0 && emoVec.size() > 0 && countVec.size() > 0){
   		result = "{\"status\":\"success\", ";
-  		string artStr = "\"arts\":[";
   		string emoStr = "\"emotions\":[";
+  		string artStr = "\"arts\":[";
   		string countStr = "\"counts\":[";
   		bool first = true;
   		for (int i=0; i<artVec.size(); i++){
@@ -248,7 +248,7 @@ svr.Get(R"(/response/summaryEmotion)", [&](const Request& req, Response& res){
   		artStr += "]";
   		emoStr += "]";
   		countStr += "]";
-  		result += artStr + "," + emoStr + "," + countStr + "}";
+  		result += emoStr + "," + artStr + "," + countStr + "}";
   	}
   	else
   		result = "{\"status\":\"failed\"}";

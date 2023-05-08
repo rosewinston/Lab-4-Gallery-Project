@@ -1,8 +1,30 @@
 var baseUrl = 'http://18.222.189.198:5005';
 var state="off";
+var graph = 0;
+var unique_arts
 
 summaryEmotion();
-var graph;
+
+function listToMatrix(list, elementsPerSubArray) {
+    var matrix = [], i, k;
+    for (i = 0, k = -1; i < list.length; i++) {
+      if (i % elementsPerSubArray === 0) {
+        k++;
+        matrix[k] = [];
+      }
+      matrix[k].push(list[i]);
+    }
+    return matrix;
+}
+
+function getCol(matrix, col){
+    var column = [];
+    for(var i=0; i<matrix.length; i++){
+        column.push(matrix[i][col]);
+    }
+    return column;
+}
+
 
 function summaryEmotion(){
 	fetch(baseUrl+'/response/summaryEmotion', {
@@ -20,21 +42,22 @@ function graphEmotion(result){
 	var emotions = result['emotions'];
 	var counts = result['counts'];
 	
-	let unique_arts = arts.filter((item, i, ar) => ar.indexOf(item) === i);
-	console.log(unique_arts);
-	let unique_emotions = emotions.filter((item, i, ar) => ar.indexOf(item) === i);
-
-		
-	const ctx = document.getElementById('chart3');
-	graph = new Chart(ctx, {
-		type = 'bar',
-		data = {
-			labels: unique_arts;
+	var unique_arts = arts.filter((item, i, ar) => ar.indexOf(item) === i);
+	var unique_emotions = emotions.filter((item, i, ar) => ar.indexOf(item) === i);
+	var mat = listToMatrix(counts, unique_arts.length);
+	
+	var ctx = document.getElementById('chart').getContext('2d');
+	
+	var chart = new Chart(ctx, {
+		type: 'bar',
+		data: {
+			labels: unique_arts,
 			datasets: [{
-				label = unique_emotions[0],
-				backgroundColor: "#caf270",
-				data: counts;
+			
 			}]
 		}
-	});
+	})
+	
+	
+	
 }
