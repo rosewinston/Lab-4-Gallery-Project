@@ -23,7 +23,15 @@ window.onload = function(argument) {
 	
 		console.log(words);
 		function fetchWords() {
-			// default timestamp, change later
+			const date = new Date();
+			let currentDay= String(date.getDate()).padStart(2, '0');
+			let currentMonth = String(date.getMonth()+1).padStart(2,"0");
+			let currentYear = date.getFullYear();
+			// format date: year - month - date 
+			let currentDate = `${currentYear}-${currentMonth}-${currentDay}`;
+			console.log("Current Date: " + currentDate); 
+			
+			
 			timestamp = "2023-05-05";
    			fetch(baseUrl + '/retrieve/words/'+timestamp, {
    			method: 'get'
