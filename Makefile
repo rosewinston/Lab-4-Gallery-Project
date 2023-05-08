@@ -11,8 +11,8 @@ RM= /bin/rm -f
 
 all: PutHTML gallery
 
-colorEntry.o: DatabaseFiles/colorEntry.cpp DatabaseFiles/colorEntry.h
-	$(CC) -c $(CFLAGS) DatabaseFiles/colorEntry.cpp
+emotionEntry.o: DatabaseFiles/emotionEntry.cpp DatabaseFiles/emotionEntry.h
+	$(CC) -c $(CFLAGS) DatabaseFiles/emotionEntry.cpp
 	
 emojiEntry.o: DatabaseFiles/emojiEntry.cpp DatabaseFiles/emojiEntry.h
 	$(CC) -c $(CFLAGS) DatabaseFiles/emojiEntry.cpp
@@ -29,8 +29,8 @@ gallery.o: gallery.cpp httplib.h
 artEntry.o: DatabaseFiles/artEntry.cpp DatabaseFiles/artEntry.h
 	$(CC) -c $(CFLAGS) DatabaseFiles/artEntry.cpp
 
-gallery: gallery.o galleryDB.o colorEntry.o emojiEntry.o wordEntry.o artEntry.o
-	$(CC) gallery.o galleryDB.o colorEntry.o emojiEntry.o wordEntry.o artEntry.o -o gallery -L/usr/local/lib -lmariadbcpp
+gallery: gallery.o galleryDB.o emotionEntry.o emojiEntry.o wordEntry.o artEntry.o
+	$(CC) gallery.o galleryDB.o emotionEntry.o emojiEntry.o wordEntry.o artEntry.o -o gallery -L/usr/local/lib -lmariadbcpp
 	
 
 
