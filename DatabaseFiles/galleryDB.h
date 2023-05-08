@@ -10,7 +10,6 @@
 #include <mariadb/conncpp.hpp>
 
 #include "emotionEntry.h"
-#include "emojiEntry.h"
 #include "wordEntry.h"
 #include "artEntry.h"
 
