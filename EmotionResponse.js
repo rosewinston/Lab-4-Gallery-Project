@@ -76,7 +76,7 @@ function completeAddEmotion(results){
 	alert("Response recorded!")
 }
 
-function addEmotion(currentArt, colorID) {
+function addEmotion(currentArt, emotionID) {
 	fetch(baseUrl+'/response/addEmotion/'+currentArt+'/'+emotionID, {
         method: 'get'
     })
