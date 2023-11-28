@@ -1,7 +1,7 @@
 //Admin Portal for Gund Gallery ArtDB
 var artList = [];
-const baseUrl = 'http://18.222.189.198:5005';
-const imageUrl = "https://collection.gundgallery.org/Media/Previews/"
+const baseUrl = 'http://54.81.146.159:5005';
+const imageUrl = "https://collection.thegund.org/Media/images/"
 
 /* Set up events */
 $(document).ready(function() {
@@ -80,7 +80,7 @@ function addArtPiece() {
     console.log("Attempting to add an entry");
     console.log("Artname:" + $('#addname').val());
     $('#searchresults').empty();
-    fetch(baseUrl + '/art/add/' + $('#addname').val() + "/" + $('#addlink').val(), {
+    fetch(baseUrl + '/art/add/' + document.getElementById("addname").value + "/" + document.getElementById("addlink").value, {
             method: 'get'
         })
         .then(response => response.json())

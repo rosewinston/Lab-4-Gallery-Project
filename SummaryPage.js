@@ -1,4 +1,4 @@
-var baseUrl = 'http://18.222.189.198:5005';
+var baseUrl = 'http://54.81.146.159:5005';
 var state="off";
 var graph = 0;
 var unique_arts

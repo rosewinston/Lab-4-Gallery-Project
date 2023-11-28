@@ -74,7 +74,7 @@ string getWordJSON(vector<string> &wordList){
 
 int main(void) {
   Server svr;
-  // Object of RestchatDB
+  // Object of GalleryDB
   galleryDB gldb;
   vector<artEntry> results;
   /* "/" just returnsAPI name */

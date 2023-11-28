@@ -1,11 +1,11 @@
-var baseUrl = 'http://18.222.189.198:5005';
+var baseUrl = 'http://54.81.146.159:5005';
 var state="off";
 var art_piece="";
 var inthandle;
 var inthandle2;
 var emotion = '#343a40';
 var currentArt = "";
-var gundUrl = 'https://collection.gundgallery.org/Media/images/'
+var gundUrl = 'https://collection.thegund.org/Media/images/'
 var artList = [];
 var artLink = [];
 
